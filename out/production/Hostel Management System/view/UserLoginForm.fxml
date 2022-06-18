@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="292.0" prefWidth="417.0" style="-fx-background-color: #5f9ea0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserLoginFormController">
+   <children>
+      <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="173.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/Sample_User_Icon.png" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="txtUsername" layoutX="55.0" layoutY="130.0" prefHeight="31.0" prefWidth="305.0" promptText="Username" />
+      <JFXPasswordField fx:id="pwdPassword" layoutX="55.0" layoutY="179.0" prefHeight="31.0" prefWidth="305.0" promptText="Password" />
+      <Label layoutX="171.0" layoutY="99.0" text="User Login">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="317.0" layoutY="247.0" onAction="#btnLoginOnAction" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #7fff00;" text="Login" />
+      <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="247.0" onAction="#btnExit" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #7fff00;" text="Cancel" />
+   </children>
+</AnchorPane>
