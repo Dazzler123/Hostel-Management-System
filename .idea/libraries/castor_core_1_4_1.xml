@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="castor-core-1.4.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/castor-core-1.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/commons-lang3-3.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/bcprov-jdk15on-1.64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/commons-digester-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/commons-collections4-4.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/commons-collections-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/commons-beanutils-1.9.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/castor-xml-1.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/jcommon-1.0.23.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/jfreechart-1.0.19.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/javax.inject-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/jasperreports-6.17.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/jackson-databind-2.12.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/jackson-core-2.12.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/jackson-annotations-2.12.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/ecj-3.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Jasper reports/itext-2.1.7.js8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
