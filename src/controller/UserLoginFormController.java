@@ -29,13 +29,12 @@ public class UserLoginFormController {
              Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
              stage.close();
          }else{
-             new Alert(Alert.AlertType.ERROR,"Incorrect Username or Password!").show();
+             new Alert(Alert.AlertType.WARNING,"Incorrect Username or Password!").show();
              //clear textfields
              txtUsername.clear();
              pwdPassword.clear();
          }
     }
-
 
     public void btnExit(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
