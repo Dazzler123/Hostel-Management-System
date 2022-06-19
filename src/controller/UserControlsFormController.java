@@ -9,7 +9,8 @@ import java.io.IOException;
 
 public class UserControlsFormController {
 
-    public void btnToMakeRegistration(ActionEvent actionEvent) {
+    public void btnToMakeRegistration(ActionEvent actionEvent) throws IOException {
+        UINavigation.setUI("RegistrationForm","Make Registration");
     }
 
     public void btnToManageStudents(ActionEvent actionEvent) {
