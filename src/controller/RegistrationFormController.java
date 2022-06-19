@@ -7,6 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import util.UINavigation;
+
+import java.io.IOException;
 
 public class RegistrationFormController {
     public TableView tblRooms;
@@ -21,7 +24,8 @@ public class RegistrationFormController {
     public void txtSearchStudent(ActionEvent actionEvent) {
     }
 
-    public void btnAddNewStudent(ActionEvent actionEvent) {
+    public void btnAddNewStudent(ActionEvent actionEvent) throws IOException {
+        UINavigation.setUI("AddNewStudentForm","Add New Student");
     }
 
     public void btnRegister(ActionEvent actionEvent) {

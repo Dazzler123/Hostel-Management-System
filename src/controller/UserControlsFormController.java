@@ -13,7 +13,8 @@ public class UserControlsFormController {
         UINavigation.setUI("RegistrationForm","Make Registration");
     }
 
-    public void btnToManageStudents(ActionEvent actionEvent) {
+    public void btnToManageStudents(ActionEvent actionEvent) throws IOException {
+        UINavigation.setUI("ManageStudentsForm","Manage Students");
     }
 
     public void btnToManageRooms(ActionEvent actionEvent) {
