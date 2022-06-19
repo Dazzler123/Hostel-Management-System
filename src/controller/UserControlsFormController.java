@@ -17,7 +17,8 @@ public class UserControlsFormController {
         UINavigation.setUI("ManageStudentsForm","Manage Students");
     }
 
-    public void btnToManageRooms(ActionEvent actionEvent) {
+    public void btnToManageRooms(ActionEvent actionEvent) throws IOException {
+        UINavigation.setUI("ManageRoomsForm","Manage Rooms");
     }
 
     public void btnToEditUnPw(ActionEvent actionEvent) throws IOException {
