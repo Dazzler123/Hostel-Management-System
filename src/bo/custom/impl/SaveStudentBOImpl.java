@@ -1,8 +1,8 @@
 package bo.custom.impl;
 
 import bo.custom.SaveStudentBO;
-import dao.StudentDAO;
-import dao.StudentDAOImpl;
+import dao.custom.StudentDAO;
+import dao.custom.impl.StudentDAOImpl;
 import dto.StudentDTO;
 import entity.Student;
 
