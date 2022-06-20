@@ -1,5 +1,7 @@
 package dao;
 
+import entity.Student;
+
 public interface StudentDAO {
-    public void save();
+    public boolean save(Student student);
 }

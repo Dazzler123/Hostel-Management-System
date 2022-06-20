@@ -22,4 +22,5 @@ public class Student {
     private String contact_no;
     private LocalDate dob;
     private String gender;
+
 }
