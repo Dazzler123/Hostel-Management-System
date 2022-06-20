@@ -1,7 +1,7 @@
 package controller;
 
-import bo.SaveStudentBO;
-import bo.SaveStudentBOImpl;
+import bo.custom.SaveStudentBO;
+import bo.custom.impl.SaveStudentBOImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
