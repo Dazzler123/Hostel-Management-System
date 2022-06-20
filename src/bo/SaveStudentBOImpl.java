@@ -14,6 +14,5 @@ public class SaveStudentBOImpl implements SaveStudentBO{
     public boolean saveStudent(StudentDTO studentDTO) {
         return studentDAO.save(new Student(studentDTO.getStudentID(),studentDTO.getName(),
                 studentDTO.getAddress(),studentDTO.getContactNo(),studentDTO.getDate(),studentDTO.getGender()));
-
     }
 }
