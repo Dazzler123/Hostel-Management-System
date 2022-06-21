@@ -16,8 +16,7 @@ public class RoomDAOImpl implements RoomDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        String hql = "FROM room";
-        Query query = session.createQuery(hql);
+        Query query = session.createQuery("FROM room");
         List<Room> roomList = query.list();
 
         transaction.commit();
