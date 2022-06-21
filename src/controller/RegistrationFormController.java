@@ -4,17 +4,21 @@ import bo.custom.RegistrationBO;
 import bo.custom.impl.RegistrationBOImpl;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import dto.RoomDTO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import util.UINavigation;
 
 import java.io.IOException;
 
 public class RegistrationFormController {
-    public TableView tblRooms;
+    public TableView<RoomDTO> tblRooms;
     public TableColumn colRoomID;
     public TableColumn colType;
     public TableColumn colKeyMoney;
@@ -27,12 +31,22 @@ public class RegistrationFormController {
     RegistrationBO registrationBO = new RegistrationBOImpl();
 
     public void initialize(){
+
+        colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomID"));
+        colType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+
         //load all rooms
         loadAllRooms();
     }
 
     private void loadAllRooms() {
-        registrationBO.getAllRooms();
+        ObservableList<RoomDTO> roomList = FXCollections.observableArrayList();
+        for(RoomDTO roomDTO : registrationBO.getAllRooms()){
+            roomList.add(new RoomDTO(roomDTO.getRoomID(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty()));
+        }
+        tblRooms.setItems(roomList);
     }
 
 

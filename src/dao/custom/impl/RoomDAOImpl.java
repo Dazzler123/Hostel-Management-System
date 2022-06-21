@@ -15,22 +15,14 @@ public class RoomDAOImpl implements RoomDAO {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-         /*String hql = "FROM Owner";  // need to add JPA Facet to the Module
-        Query query = session.createQuery(hql);
-        List<Owner> ownerList = query.list();
-
-        for (Owner owner : ownerList) {
-            System.out.println(owner.getoId() + " : " + owner.getName() + " : " + owner.getPetList());
-            System.out.println(owner);
-        }*/
 
         String hql = "FROM room";
         Query query = session.createQuery(hql);
+        List<Room> roomList = query.list();
 
         transaction.commit();
         session.close();
 
-        return query.list();
-
+        return roomList;
     }
 }
