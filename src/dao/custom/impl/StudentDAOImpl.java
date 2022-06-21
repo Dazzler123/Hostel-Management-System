@@ -13,20 +13,10 @@ public class StudentDAOImpl implements StudentDAO {
         Transaction transaction = session.beginTransaction();
 
         session.save(student); // save new student
-        
-//        try {
-//            session.save();
-//            return true;
-//        } catch(Exception e) {
-//            System.out.println("somthing happend");
-//            return false;
-//        } finally {
-//            session.close();
-//        }
 
         transaction.commit();
         session.close();
-
         return true;
     }
+
 }

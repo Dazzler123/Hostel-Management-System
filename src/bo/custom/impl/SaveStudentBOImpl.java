@@ -6,6 +6,7 @@ import dao.custom.impl.StudentDAOImpl;
 import dto.StudentDTO;
 import entity.Student;
 
+
 public class SaveStudentBOImpl implements SaveStudentBO {
 
     //Dependency injection - property injection
@@ -13,7 +14,14 @@ public class SaveStudentBOImpl implements SaveStudentBO {
 
     @Override
     public boolean saveStudent(StudentDTO studentDTO) {
-        return studentDAO.save(new Student(studentDTO.getStudentID(),studentDTO.getName(),
-                studentDTO.getAddress(),studentDTO.getContactNo(),studentDTO.getDate(),studentDTO.getGender()));
+        Student student = new Student();
+        student.setStudent_id(studentDTO.getStudentID());
+        student.setName(studentDTO.getName());
+        student.setAddress(studentDTO.getAddress());
+        student.setContact_no(studentDTO.getContactNo());
+        student.setDob(studentDTO.getDate());
+        student.setGender(studentDTO.getGender());
+
+        return studentDAO.save(student);
     }
 }
