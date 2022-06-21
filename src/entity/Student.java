@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
@@ -16,8 +17,10 @@ import java.time.LocalDate;
 @Entity(name = "student")
 public class Student {
     @Id
+    @Column(nullable = false)
     private String student_id;
     private String name;
+    @Column(columnDefinition = "TEXT")
     private String address;
     private String contact_no;
     private LocalDate dob;
