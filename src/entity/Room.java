@@ -8,6 +8,9 @@ import lombok.ToString;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,5 +24,8 @@ public class Room {
     private String type;
     private double key_money;
     private String qty;
+
+    @ManyToMany
+    private List<Student> studentList = new ArrayList<>();
 
 }

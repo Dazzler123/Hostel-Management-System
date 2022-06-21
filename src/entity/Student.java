@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,5 +25,8 @@ public class Student {
     private String contact_no;
     private LocalDate dob;
     private String gender;
+
+    @ManyToMany(mappedBy = "studentList")
+    private List<Room> roomList = new ArrayList<>();
 
 }
