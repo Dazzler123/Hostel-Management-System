@@ -17,7 +17,7 @@ import java.util.List;
 @Entity(name = "student")
 public class Student {
     @Id
-    @Column(nullable = false)
+    @Column(name = "student_id", nullable = false)
     private String student_id;
     private String name;
     @Column(columnDefinition = "TEXT")
@@ -26,7 +26,7 @@ public class Student {
     private LocalDate dob;
     private String gender;
 
-    @ManyToMany(mappedBy = "studentList")
-    private List<Room> roomList = new ArrayList<>();
+    @OneToMany(mappedBy = "student_id", targetEntity = Reserve.class)
+    private List<Reserve> reserveList = new ArrayList<>();
 
 }
