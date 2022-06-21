@@ -21,6 +21,10 @@ public class RegistrationFormController {
     public JFXRadioButton rdBtnPayNow;
     public JFXRadioButton rdBtnPayLater;
 
+    public void initialize(){
+
+    }
+
     public void txtSearchStudent(ActionEvent actionEvent) {
     }
 
