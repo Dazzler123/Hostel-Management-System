@@ -1,5 +1,9 @@
 package bo.custom;
 
+import dto.RoomDTO;
+
+import java.util.ArrayList;
+
 public interface RegistrationBO {
-    public void getAll();
+    public ArrayList<RoomDTO> getAllRooms();
 }

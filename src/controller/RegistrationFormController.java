@@ -32,7 +32,7 @@ public class RegistrationFormController {
     }
 
     private void loadAllRooms() {
-        registrationBO.getAll();
+        registrationBO.getAllRooms();
     }
 
 
