@@ -1,5 +1,7 @@
 package controller;
 
+import bo.custom.RegistrationBO;
+import bo.custom.impl.RegistrationBOImpl;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -21,9 +23,18 @@ public class RegistrationFormController {
     public JFXRadioButton rdBtnPayNow;
     public JFXRadioButton rdBtnPayLater;
 
-    public void initialize(){
+    //Dependency injection - property injection
+    RegistrationBO registrationBO = new RegistrationBOImpl();
 
+    public void initialize(){
+        //load all rooms
+        loadAllRooms();
     }
+
+    private void loadAllRooms() {
+        registrationBO.getAll();
+    }
+
 
     public void txtSearchStudent(ActionEvent actionEvent) {
     }

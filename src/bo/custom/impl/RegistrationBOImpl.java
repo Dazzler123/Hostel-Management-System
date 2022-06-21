@@ -1,4 +1,10 @@
 package bo.custom.impl;
 
-public class RegistrationBOImpl {
+import bo.custom.RegistrationBO;
+
+public class RegistrationBOImpl implements RegistrationBO {
+    @Override
+    public void getAll() {
+
+    }
 }
