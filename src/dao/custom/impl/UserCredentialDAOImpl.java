@@ -36,4 +36,9 @@ public class UserCredentialDAOImpl implements UserCredentialDAO {
 
         return password;
     }
+
+    @Override
+    public void update() {
+
+    }
 }

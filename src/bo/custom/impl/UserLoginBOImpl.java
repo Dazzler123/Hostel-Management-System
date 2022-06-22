@@ -28,4 +28,10 @@ public class UserLoginBOImpl implements UserLoginBO {
         return pw;
     }
 
+    @Override
+    public void updateCredentials() {
+
+    }
+
+
 }
