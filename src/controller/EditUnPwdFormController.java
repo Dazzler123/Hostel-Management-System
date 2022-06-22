@@ -42,14 +42,12 @@ public class EditUnPwdFormController {
         String newUn = String.valueOf(txtNewUsername.getText());
         String newPw = String.valueOf(pwdNewPassword.getText());
 
-//        //edit existing credentials
-//        UserLoginFormController.username = newUn;
-//        UserLoginFormController.password = newPw;
+        //update user credentials
+        if(userLoginBO.updateCredentials(txtUsername.getText(),newUn,newPw)){
+            //confirmation alert
+            new Alert(Alert.AlertType.CONFIRMATION, "Credentials Confirmed.").show();
+        }
 
-        //user_credential table eke un, pw update wenna ona methana
-
-        //confirmation alert
-        new Alert(Alert.AlertType.CONFIRMATION, "Credentials Confirmed.").show();
     }
 
     public void btnExit(ActionEvent actionEvent) {

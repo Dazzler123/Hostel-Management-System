@@ -28,9 +28,8 @@ public class UserLoginBOImpl implements UserLoginBO {
         return pw;
     }
 
-    @Override
-    public void updateCredentials() {
-
+    public boolean updateCredentials(String username, String newUn, String newPw) {
+        return credentialDAO.update(username,newUn,newPw);
     }
 
 

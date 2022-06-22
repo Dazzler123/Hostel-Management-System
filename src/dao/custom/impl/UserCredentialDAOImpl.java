@@ -46,14 +46,14 @@ public class UserCredentialDAOImpl implements UserCredentialDAO {
         query.setParameter("new_un",newUn);
         query.setParameter("new_pw",newPw);
         query.setParameter("un",uName);
-
-        if(query.executeUpdate() > 0){
-            return true;
-        }
+        int count = query.executeUpdate();
 
         transaction.commit();
         session.close();
 
+        if(count > 0){
+            return true;
+        }
         return false;
     }
 }
