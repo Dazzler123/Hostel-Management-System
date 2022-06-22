@@ -35,6 +35,9 @@ public class EditUnPwdFormController {
         } else {
             //warning alert
             new Alert(Alert.AlertType.ERROR, "Incorrect Username or Password!").show();
+            //refresh textfields
+            txtUsername.clear();
+            pwdPassword.clear();
         }
     }
 
@@ -47,7 +50,6 @@ public class EditUnPwdFormController {
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION, "Credentials Confirmed.").show();
         }
-
     }
 
     public void btnExit(ActionEvent actionEvent) {
