@@ -20,4 +20,5 @@ public class UserCredential {
     private String username;
     @Column(name = "pass_word")
     private String password;
+
 }
