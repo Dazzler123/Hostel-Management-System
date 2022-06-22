@@ -100,6 +100,9 @@ public class RegistrationFormController {
 
         //room qty should be reduced here...
         //code here
+        int roomQty = Integer.parseInt(selectedRoom.getQty());
+        int newQty = roomQty - 1;
+
     }
 
     public void btnExit(ActionEvent actionEvent) {

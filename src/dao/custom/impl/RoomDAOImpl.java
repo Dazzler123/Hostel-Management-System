@@ -35,4 +35,23 @@ public class RoomDAOImpl implements RoomDAO {
 
         return room;
     }
+
+    public boolean updateQty(String id, int qty) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        String hql = "UPDATE room SET qty = : new_qty WHERE room_id = : id";
+        Query query = session.createQuery(hql);
+        query.setParameter("new_qty", qty);
+        query.setParameter("id",id);
+
+        int rowCount = query.executeUpdate();
+        if(rowCount > 0){
+            return true;
+        }
+        transaction.commit();
+        session.close();
+
+        return false;
+    }
 }
