@@ -1,13 +1,19 @@
 package bo.custom.impl;
 
 import bo.custom.RegistrationBO;
+import dao.custom.ReserveDAO;
 import dao.custom.RoomDAO;
 import dao.custom.StudentDAO;
+import dao.custom.impl.ReserveDAOImpl;
 import dao.custom.impl.RoomDAOImpl;
 import dao.custom.impl.StudentDAOImpl;
+import dto.ReserveDTO;
 import dto.RoomDTO;
+import entity.Reserve;
 import entity.Room;
 import entity.Student;
+import org.hibernate.Session;
+import util.FactoryConfiguration;
 
 import java.util.ArrayList;
 
@@ -16,6 +22,12 @@ public class RegistrationBOImpl implements RegistrationBO {
     //Dependency injection - property injection
     RoomDAO roomDAO = new RoomDAOImpl();
     StudentDAO studentDAO = new StudentDAOImpl();
+    ReserveDAO reserveDAO = new ReserveDAOImpl();
+
+    @Override
+    public String generateID() {
+        return reserveDAO.generateID();
+    }
 
     @Override
     public ArrayList<RoomDTO> getAllRooms() {
@@ -38,7 +50,7 @@ public class RegistrationBOImpl implements RegistrationBO {
         }
     }
 
-//    @Override
+    //    @Override
 //    public ArrayList<String> getStudentName(String id) {
 //        ArrayList<String> studentDTOS = new ArrayList<>();
 //        for (Student student : studentDAO.getName(id)) {
@@ -46,6 +58,17 @@ public class RegistrationBOImpl implements RegistrationBO {
 //        }
 //        return studentDTOS;
 //    }
+
+    @Override
+    public boolean register(ReserveDTO reserveDTO) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Student student = session.get(Student.class, reserveDTO.getStudentID());
+        Room room = session.get(Room.class, reserveDTO.getRoomTypeID());
+        session.close();
+
+        return reserveDAO.save(new Reserve(reserveDTO.getResID(), student,
+                room, reserveDTO.getDate(), reserveDTO.getStatus()));
+    }
 
 
 }

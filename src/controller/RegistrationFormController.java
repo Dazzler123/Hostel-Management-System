@@ -4,6 +4,7 @@ import bo.custom.RegistrationBO;
 import bo.custom.impl.RegistrationBOImpl;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import dto.ReserveDTO;
 import dto.RoomDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +19,7 @@ import javafx.stage.Stage;
 import util.UINavigation;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class RegistrationFormController {
     public TableView<RoomDTO> tblRooms;
@@ -34,7 +35,7 @@ public class RegistrationFormController {
     //Dependency injection - property injection
     RegistrationBO registrationBO = new RegistrationBOImpl();
 
-    public void initialize(){
+    public void initialize() {
 
         colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomID"));
         colType.setCellValueFactory(new PropertyValueFactory<>("type"));
@@ -47,8 +48,8 @@ public class RegistrationFormController {
 
     private void loadAllRooms() {
         ObservableList<RoomDTO> roomList = FXCollections.observableArrayList();
-        for(RoomDTO roomDTO : registrationBO.getAllRooms()){
-            roomList.add(new RoomDTO(roomDTO.getRoomID(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty()));
+        for (RoomDTO roomDTO : registrationBO.getAllRooms()) {
+            roomList.add(new RoomDTO(roomDTO.getRoomID(), roomDTO.getType(), roomDTO.getKeyMoney(), roomDTO.getQty()));
         }
         tblRooms.setItems(roomList);
     }
@@ -56,26 +57,47 @@ public class RegistrationFormController {
 
     public void txtSearchStudent(ActionEvent actionEvent) {
         String id = String.valueOf(txtStudentID.getText());
-        if(registrationBO.searchStudent(id)){
+        if (registrationBO.searchStudent(id)) {
 
 //            ArrayList<String> name = registrationBO.getStudentName(id);
 //            lblName.setText(name.get(1));
 
             //confirmation alert
-            new Alert(Alert.AlertType.CONFIRMATION,"Student already exists.").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Student already exists.").show();
 
             //disable id textfield for no later changes
             txtStudentID.setDisable(true);
-        }else{
-            new Alert(Alert.AlertType.ERROR,"No related Student ID found!\nPlease add a new Student").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "No related Student ID found!\nPlease add a new Student").show();
         }
     }
 
     public void btnAddNewStudent(ActionEvent actionEvent) throws IOException {
-        UINavigation.setUI("AddNewStudentForm","Add New Student");
+        UINavigation.setUI("AddNewStudentForm", "Add New Student");
     }
 
     public void btnRegister(ActionEvent actionEvent) {
+        //get new reservation id
+        String resID = registrationBO.generateID();
+
+        RoomDTO selectedRoom = tblRooms.getSelectionModel().getSelectedItem();
+        String studentID = String.valueOf(txtStudentID.getText());
+        String status = null;
+
+        //get selection from pay now/pay later
+        if (rdBtnPayNow.isSelected()) {
+            status = "Paid";
+        } else if (rdBtnPayLater.isSelected()) {
+            status = "Not Paid Yet";
+        } else {
+            status = "Not Specified";
+        }
+
+        //place reservation
+        if(registrationBO.register(new ReserveDTO(resID, LocalDate.now(), studentID, selectedRoom.getRoomID(), status))){
+            //confirmation alert
+            new Alert(Alert.AlertType.CONFIRMATION,"Reservation Placed successfully.").show();
+        }
     }
 
     public void btnExit(ActionEvent actionEvent) {

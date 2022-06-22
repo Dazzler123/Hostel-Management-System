@@ -15,7 +15,6 @@ import java.time.LocalDate;
 @Entity(name = "Reserve")
 public class Reserve {  //associate entity created between student and room (Many-to-Many)
     @Id
-    @Column(nullable = false)
     private String res_id;
 
     @ManyToOne(cascade = CascadeType.ALL, targetEntity = Student.class)
