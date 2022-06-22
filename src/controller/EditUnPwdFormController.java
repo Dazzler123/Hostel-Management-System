@@ -1,5 +1,7 @@
 package controller;
 
+import bo.custom.UserLoginBO;
+import bo.custom.impl.UserLoginBOImpl;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -14,16 +16,19 @@ public class EditUnPwdFormController {
     public JFXTextField txtNewUsername;
     public JFXPasswordField pwdNewPassword;
 
+    //Dependency injection - property injection
+    UserLoginBO userLoginBO = new UserLoginBOImpl();
+
     public void initialize() {
         txtNewUsername.setDisable(true);
         pwdNewPassword.setDisable(true);
     }
 
     public void btnVerifyCredentials(ActionEvent actionEvent) {
-        String un = UserLoginFormController.username;
-        String pw = UserLoginFormController.password;
+        String un = String.valueOf(txtUsername.getText());
+        String pw = String.valueOf(pwdPassword.getText());
 
-        if (un.equals(txtUsername.getText()) & pw.equals(pwdPassword.getText())) {
+        if (un.equals(userLoginBO.getUserName()) & pw.equals(userLoginBO.getPassWord())) {
             //enable textfields to enter new credentials
             txtNewUsername.setDisable(false);
             pwdNewPassword.setDisable(false);
@@ -37,9 +42,11 @@ public class EditUnPwdFormController {
         String newUn = String.valueOf(txtNewUsername.getText());
         String newPw = String.valueOf(pwdNewPassword.getText());
 
-        //edit existing credentials
-        UserLoginFormController.username = newUn;
-        UserLoginFormController.password = newPw;
+//        //edit existing credentials
+//        UserLoginFormController.username = newUn;
+//        UserLoginFormController.password = newPw;
+
+        //user_credential table eke un, pw update wenna ona methana
 
         //confirmation alert
         new Alert(Alert.AlertType.CONFIRMATION, "Credentials Confirmed.").show();

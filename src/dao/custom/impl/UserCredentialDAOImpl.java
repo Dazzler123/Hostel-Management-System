@@ -22,4 +22,18 @@ public class UserCredentialDAOImpl implements UserCredentialDAO {
 
         return username;
     }
+
+    @Override
+    public List<String> getPassWord() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT password FROM user_credential");
+        List<String> password = query.list();
+
+        transaction.commit();
+        session.close();
+
+        return password;
+    }
 }
