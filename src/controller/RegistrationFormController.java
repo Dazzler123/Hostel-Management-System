@@ -94,14 +94,20 @@ public class RegistrationFormController {
 
         //place reservation
         if(registrationBO.saveReservation(new ReserveDTO(resID, LocalDate.now(), studentID, selectedRoom.getRoomID(), status))){
+
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION,"Reservation Placed successfully.").show();
+
+            //update room qty
+            int roomQty = Integer.parseInt(selectedRoom.getQty());
+            int newQty = roomQty - 1;
+            registrationBO.updateRoomQty(selectedRoom.getRoomID(),newQty);
+
+
+            //alert eka update qty eka yatata enna ona (methanata..)
+            //that uda alert eka here
         }
 
-        //room qty should be reduced here...
-        //code here
-        int roomQty = Integer.parseInt(selectedRoom.getQty());
-        int newQty = roomQty - 1;
 
     }
 
