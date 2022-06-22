@@ -100,9 +100,7 @@ public class RegistrationFormController {
 
             //update room qty
             int roomQty = Integer.parseInt(selectedRoom.getQty());
-            int newQty = roomQty - 1;
-            reservationBO.updateRoomQty(selectedRoom.getRoomID(),newQty);
-
+            reservationBO.updateRoomQty(selectedRoom.getRoomID(),roomQty);
 
             //alert eka update qty eka yatata enna ona (methanata..)
             //that uda alert eka here

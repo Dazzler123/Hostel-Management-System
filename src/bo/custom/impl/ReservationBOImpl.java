@@ -65,7 +65,9 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
     public boolean updateRoomQty(String id, int qty) {
-        return roomDAO.updateQty(id, qty);
+        //remove one room
+        int newQty = qty - 1;
+        return roomDAO.updateQty(id, newQty);
     }
 
 
