@@ -4,7 +4,6 @@ import dao.custom.StudentDAO;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
@@ -37,7 +36,7 @@ public class StudentDAOImpl implements StudentDAO {
         return studentId;
     }
 
-//    @Override
+    //    @Override
 //    public List<Student> getName(String id) {
 //        Session session = FactoryConfiguration.getInstance().getSession();
 //        Transaction transaction = session.beginTransaction();
@@ -51,5 +50,20 @@ public class StudentDAOImpl implements StudentDAO {
 //
 //        return name;
 //    }
+
+    @Override
+    public Student get(String id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Student student = session.get(Student.class, id);
+
+        transaction.commit();
+        session.close();
+
+        return student;
+    }
+
+
 
 }

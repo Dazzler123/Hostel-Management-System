@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface RoomDAO {
     public List<Room> getAll();
+    public Room get(String id);
 }

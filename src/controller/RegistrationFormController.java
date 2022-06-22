@@ -36,7 +36,6 @@ public class RegistrationFormController {
     RegistrationBO registrationBO = new RegistrationBOImpl();
 
     public void initialize() {
-
         colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomID"));
         colType.setCellValueFactory(new PropertyValueFactory<>("type"));
         colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
@@ -98,6 +97,9 @@ public class RegistrationFormController {
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION,"Reservation Placed successfully.").show();
         }
+
+        //room qty should be reduced here...
+        //code here
     }
 
     public void btnExit(ActionEvent actionEvent) {

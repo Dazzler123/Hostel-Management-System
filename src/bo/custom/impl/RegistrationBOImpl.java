@@ -61,10 +61,13 @@ public class RegistrationBOImpl implements RegistrationBO {
 
     @Override
     public boolean register(ReserveDTO reserveDTO) {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Student student = session.get(Student.class, reserveDTO.getStudentID());
-        Room room = session.get(Room.class, reserveDTO.getRoomTypeID());
-        session.close();
+//        Session session = FactoryConfiguration.getInstance().getSession();
+//        Student student = session.get(Student.class, reserveDTO.getStudentID());
+//        Room room = session.get(Room.class, reserveDTO.getRoomTypeID());
+//        session.close();
+
+        Student student = studentDAO.get(reserveDTO.getStudentID());
+        Room room = roomDAO.get(reserveDTO.getRoomTypeID());
 
         return reserveDAO.save(new Reserve(reserveDTO.getResID(), student,
                 room, reserveDTO.getDate(), reserveDTO.getStatus()));

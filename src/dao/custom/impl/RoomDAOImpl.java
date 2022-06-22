@@ -12,7 +12,6 @@ import java.util.List;
 public class RoomDAOImpl implements RoomDAO {
     @Override
     public List<Room> getAll() {
-
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -23,5 +22,17 @@ public class RoomDAOImpl implements RoomDAO {
         session.close();
 
         return roomList;
+    }
+
+    public Room get(String id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Room room = session.get(Room.class, id);
+
+        transaction.commit();
+        session.close();
+
+        return room;
     }
 }
