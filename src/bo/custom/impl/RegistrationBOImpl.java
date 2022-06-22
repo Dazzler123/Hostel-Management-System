@@ -12,8 +12,6 @@ import dto.RoomDTO;
 import entity.Reserve;
 import entity.Room;
 import entity.Student;
-import org.hibernate.Session;
-import util.FactoryConfiguration;
 
 import java.util.ArrayList;
 
@@ -49,7 +47,6 @@ public class RegistrationBOImpl implements RegistrationBO {
             return false;
         }
     }
-
     //    @Override
 //    public ArrayList<String> getStudentName(String id) {
 //        ArrayList<String> studentDTOS = new ArrayList<>();
@@ -58,14 +55,17 @@ public class RegistrationBOImpl implements RegistrationBO {
 //        }
 //        return studentDTOS;
 //    }
-
     @Override
-    public boolean register(ReserveDTO reserveDTO) {
+    public boolean saveReservation(ReserveDTO reserveDTO) {
         Student student = studentDAO.get(reserveDTO.getStudentID());
         Room room = roomDAO.get(reserveDTO.getRoomTypeID());
 
         return reserveDAO.save(new Reserve(reserveDTO.getResID(), student,
                 room, reserveDTO.getDate(), reserveDTO.getStatus()));
+    }
+
+    public boolean updateRoomQty(String id, int qty) {
+        return roomDAO.updateQty(id, qty);
     }
 
 

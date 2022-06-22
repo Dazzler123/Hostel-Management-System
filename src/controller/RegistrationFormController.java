@@ -93,7 +93,7 @@ public class RegistrationFormController {
         }
 
         //place reservation
-        if(registrationBO.register(new ReserveDTO(resID, LocalDate.now(), studentID, selectedRoom.getRoomID(), status))){
+        if(registrationBO.saveReservation(new ReserveDTO(resID, LocalDate.now(), studentID, selectedRoom.getRoomID(), status))){
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION,"Reservation Placed successfully.").show();
         }

@@ -10,6 +10,7 @@ public interface RegistrationBO {
     public ArrayList<RoomDTO> getAllRooms();
     public boolean searchStudent(String id);
 //    public ArrayList<String> getStudentName(String id);
-    public boolean register(ReserveDTO reserveDTO);
+    public boolean saveReservation(ReserveDTO reserveDTO);
+    public boolean updateRoomQty(String id, int qty);
 
 }
