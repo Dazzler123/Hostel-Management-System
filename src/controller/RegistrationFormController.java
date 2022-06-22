@@ -1,7 +1,7 @@
 package controller;
 
-import bo.custom.RegistrationBO;
-import bo.custom.impl.RegistrationBOImpl;
+import bo.custom.ReservationBO;
+import bo.custom.impl.ReservationBOImpl;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import dto.ReserveDTO;
@@ -33,7 +33,7 @@ public class RegistrationFormController {
     public Label lblName;
 
     //Dependency injection - property injection
-    RegistrationBO registrationBO = new RegistrationBOImpl();
+    ReservationBO reservationBO = new ReservationBOImpl();
 
     public void initialize() {
         colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomID"));
@@ -47,7 +47,7 @@ public class RegistrationFormController {
 
     private void loadAllRooms() {
         ObservableList<RoomDTO> roomList = FXCollections.observableArrayList();
-        for (RoomDTO roomDTO : registrationBO.getAllRooms()) {
+        for (RoomDTO roomDTO : reservationBO.getAllRooms()) {
             roomList.add(new RoomDTO(roomDTO.getRoomID(), roomDTO.getType(), roomDTO.getKeyMoney(), roomDTO.getQty()));
         }
         tblRooms.setItems(roomList);
@@ -56,7 +56,7 @@ public class RegistrationFormController {
 
     public void txtSearchStudent(ActionEvent actionEvent) {
         String id = String.valueOf(txtStudentID.getText());
-        if (registrationBO.searchStudent(id)) {
+        if (reservationBO.searchStudent(id)) {
 
 //            ArrayList<String> name = registrationBO.getStudentName(id);
 //            lblName.setText(name.get(1));
@@ -77,7 +77,7 @@ public class RegistrationFormController {
 
     public void btnRegister(ActionEvent actionEvent) {
         //get new reservation id
-        String resID = registrationBO.generateID();
+        String resID = reservationBO.generateID();
 
         RoomDTO selectedRoom = tblRooms.getSelectionModel().getSelectedItem();
         String studentID = String.valueOf(txtStudentID.getText());
@@ -93,7 +93,7 @@ public class RegistrationFormController {
         }
 
         //place reservation
-        if(registrationBO.saveReservation(new ReserveDTO(resID, LocalDate.now(), studentID, selectedRoom.getRoomID(), status))){
+        if(reservationBO.saveReservation(new ReserveDTO(resID, LocalDate.now(), studentID, selectedRoom.getRoomID(), status))){
 
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION,"Reservation Placed successfully.").show();
@@ -101,7 +101,7 @@ public class RegistrationFormController {
             //update room qty
             int roomQty = Integer.parseInt(selectedRoom.getQty());
             int newQty = roomQty - 1;
-            registrationBO.updateRoomQty(selectedRoom.getRoomID(),newQty);
+            reservationBO.updateRoomQty(selectedRoom.getRoomID(),newQty);
 
 
             //alert eka update qty eka yatata enna ona (methanata..)

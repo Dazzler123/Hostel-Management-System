@@ -1,6 +1,6 @@
 package bo.custom.impl;
 
-import bo.custom.RegistrationBO;
+import bo.custom.ReservationBO;
 import dao.custom.ReserveDAO;
 import dao.custom.RoomDAO;
 import dao.custom.StudentDAO;
@@ -15,7 +15,7 @@ import entity.Student;
 
 import java.util.ArrayList;
 
-public class RegistrationBOImpl implements RegistrationBO {
+public class ReservationBOImpl implements ReservationBO {
 
     //Dependency injection - property injection
     RoomDAO roomDAO = new RoomDAOImpl();

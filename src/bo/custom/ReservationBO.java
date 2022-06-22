@@ -5,7 +5,7 @@ import dto.RoomDTO;
 
 import java.util.ArrayList;
 
-public interface RegistrationBO {
+public interface ReservationBO {
     public String generateID();
     public ArrayList<RoomDTO> getAllRooms();
     public boolean searchStudent(String id);
