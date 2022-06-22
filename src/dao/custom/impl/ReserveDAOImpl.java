@@ -34,7 +34,7 @@ public class ReserveDAOImpl implements ReserveDAO {
         transaction.commit();
         session.close();
 
-        if (list.isEmpty()) {
+        if (list.get(0) == null) {
             return "RES-0001";
         } else {
             String id = String.valueOf(list.get(0));
