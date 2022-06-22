@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="601.0" prefWidth="965.0" style="-fx-background-color: #87cefa;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistrationFormController">
    <children>
       <JFXButton buttonType="RAISED" layoutX="358.0" layoutY="338.0" onAction="#btnAddNewStudent" prefHeight="31.0" prefWidth="169.0" style="-fx-background-color: orange;" text="Add New Student">
@@ -63,5 +62,10 @@
             </JFXButton>
          </children>
       </HBox>
+      <Label fx:id="lblName" layoutX="558.0" layoutY="300.0" prefHeight="21.0" prefWidth="368.0">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
