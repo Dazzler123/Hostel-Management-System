@@ -2,6 +2,6 @@ package bo.custom;
 
 import dto.StudentDTO;
 
-public interface SaveStudentBO {
+public interface NewStudentBO {
     public boolean saveStudent(StudentDTO studentDTO);
 }

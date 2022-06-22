@@ -1,7 +1,7 @@
 package controller;
 
-import bo.custom.SaveStudentBO;
-import bo.custom.impl.SaveStudentBOImpl;
+import bo.custom.NewStudentBO;
+import bo.custom.impl.NewStudentBOImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
@@ -24,7 +24,7 @@ public class AddNewStudentFormController {
     public JFXDatePicker dateOfBirth;
 
     //Dependency injection - property injection
-    private final SaveStudentBO saveStudentBO = new SaveStudentBOImpl();
+    private final NewStudentBO newStudentBO = new NewStudentBOImpl();
 
     public void initialize(){
         //set gender types to combobox
@@ -41,7 +41,7 @@ public class AddNewStudentFormController {
         LocalDate dob = dateOfBirth.getValue();
         String gender = String.valueOf(cbxGender.getSelectionModel().getSelectedItem());
 
-        if(saveStudentBO.saveStudent(new StudentDTO(id,name,address,contactNo,dob,gender))){
+        if(newStudentBO.saveStudent(new StudentDTO(id,name,address,contactNo,dob,gender))){
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION,"Student saved.").show();
         }else{

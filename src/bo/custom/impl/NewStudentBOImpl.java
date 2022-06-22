@@ -1,13 +1,13 @@
 package bo.custom.impl;
 
-import bo.custom.SaveStudentBO;
+import bo.custom.NewStudentBO;
 import dao.custom.StudentDAO;
 import dao.custom.impl.StudentDAOImpl;
 import dto.StudentDTO;
 import entity.Student;
 
 
-public class SaveStudentBOImpl implements SaveStudentBO {
+public class NewStudentBOImpl implements NewStudentBO {
 
     //Dependency injection - property injection
     private final StudentDAO studentDAO = new StudentDAOImpl();
