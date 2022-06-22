@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @Data
 @ToString
 @Entity(name = "user_credential")
-public class UserCredentials {
+public class UserCredential {
     @Id
     @Column(name = "user_name")
     private String username;
