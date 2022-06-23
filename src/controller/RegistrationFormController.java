@@ -93,19 +93,14 @@ public class RegistrationFormController {
         }
 
         //place reservation
-        if(reservationBO.saveReservation(new ReserveDTO(resID, LocalDate.now(), studentID, selectedRoom.getRoomID(), status))){
+        boolean reserve = reservationBO.saveReservation(new ReserveDTO(resID, LocalDate.now(), studentID, selectedRoom.getRoomID(), status));
+        //update room qty
+        boolean updateQty = reservationBO.updateRoomQty(selectedRoom.getRoomID(),selectedRoom.getQty());
 
+        if(reserve & updateQty){
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION,"Reservation Placed successfully.").show();
-
-            //update room qty
-            int roomQty = Integer.parseInt(selectedRoom.getQty());
-            reservationBO.updateRoomQty(selectedRoom.getRoomID(),roomQty);
-
-            //alert eka update qty eka yatata enna ona (methanata..)
-            //that uda alert eka here
         }
-
 
     }
 

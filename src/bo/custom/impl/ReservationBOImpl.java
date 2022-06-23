@@ -64,10 +64,12 @@ public class ReservationBOImpl implements ReservationBO {
                 room, reserveDTO.getDate(), reserveDTO.getStatus()));
     }
 
-    public boolean updateRoomQty(String id, int qty) {
+    public boolean updateRoomQty(String id, String qty) {
+        int convert = Integer.parseInt(qty);
         //remove one room
-        int newQty = qty - 1;
-        return roomDAO.updateQty(id, newQty);
+        int newQty = convert - 1;
+        String QTY = String.valueOf(newQty);
+        return roomDAO.updateQty(id, QTY);
     }
 
 

@@ -11,6 +11,6 @@ public interface ReservationBO {
     public boolean searchStudent(String id);
 //    public ArrayList<String> getStudentName(String id);
     public boolean saveReservation(ReserveDTO reserveDTO);
-    public boolean updateRoomQty(String id, int qty);
+    public boolean updateRoomQty(String id, String qty);
 
 }
