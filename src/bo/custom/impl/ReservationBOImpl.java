@@ -72,5 +72,4 @@ public class ReservationBOImpl implements ReservationBO {
         return roomDAO.updateQty(id, QTY);
     }
 
-
 }
