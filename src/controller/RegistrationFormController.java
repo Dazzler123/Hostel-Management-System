@@ -100,6 +100,9 @@ public class RegistrationFormController {
         if(reserve & updateQty){
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION,"Reservation Placed successfully.").show();
+
+            //refresh table
+            loadAllRooms();
         }
 
     }
