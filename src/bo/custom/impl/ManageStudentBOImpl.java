@@ -33,4 +33,9 @@ public class ManageStudentBOImpl implements ManageStudentBO {
         return studentDTO;
     }
 
+    @Override
+    public void updateStudentDetails() {
+
+    }
+
 }

@@ -87,6 +87,13 @@ public class ManageStudentsFormController {
     }
 
     public void btnUpdateStudent(ActionEvent actionEvent) {
+        String id = String.valueOf(txtStudentID.getText());
+        String name = String.valueOf(txtName.getText());
+        String address = String.valueOf(txtContactNo.getText());
+        String dob = String.valueOf(dateOfBirth.getValue());
+        String gender = String.valueOf(cbxGender.getSelectionModel().getSelectedItem());
+
+        manageStudentBO.updateStudentDetails();
     }
 
     public void btnDeleteStudent(ActionEvent actionEvent) {
