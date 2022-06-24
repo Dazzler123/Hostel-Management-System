@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -37,7 +38,7 @@ public class ManageStudentsFormController {
     //Dependency injection - property injection
     ManageStudentBO manageStudentBO = new ManageStudentBOImpl();
 
-    public void initialize(){
+    public void initialize() {
         colID.setCellValueFactory(new PropertyValueFactory<>("studentID"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
@@ -46,7 +47,7 @@ public class ManageStudentsFormController {
         colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
         //load gender types to combobox
-        ObservableList<String> genderList = FXCollections.observableArrayList("Male","Female","Other");
+        ObservableList<String> genderList = FXCollections.observableArrayList("Male", "Female", "Other");
         cbxGender.setItems(genderList);
 
         //load all students to the table
@@ -69,11 +70,19 @@ public class ManageStudentsFormController {
         txtContactNo.setText(studentDTO.getContactNo());
         dateOfBirth.setValue(studentDTO.getDate());
         cbxGender.setValue(studentDTO.getGender());
+
+        //disable student id input field for no later changes
+        txtStudentID.setDisable(true);
+
+        //confirmation alert
+        new Alert(Alert.AlertType.CONFIRMATION, studentDTO.getName() + "'s details exists.").show();
+
+//            new Alert(Alert.AlertType.ERROR, "No student details found related to" + txtStudentID.getText() + "ID!").show();
     }
 
     public void btnAddNewStudent(ActionEvent actionEvent) throws IOException {
         //to add new student form
-        UINavigation.setUI("AddNewStudentForm","Add New Student");
+        UINavigation.setUI("AddNewStudentForm", "Add New Student");
     }
 
     public void btnUpdateStudent(ActionEvent actionEvent) {
