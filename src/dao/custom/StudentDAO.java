@@ -11,4 +11,5 @@ public interface StudentDAO {
     public Student get(String id);
     public List<Student> getAll();
     public boolean update(Student student);
+    public boolean delete(String id);
 }

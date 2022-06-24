@@ -102,5 +102,23 @@ public class StudentDAOImpl implements StudentDAO {
         return false;
     }
 
+    @Override
+    public boolean delete(String id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("DELETE FROM student WHERE student_id = : id");
+        query.setParameter("id",id);
+        int isDeleted = query.executeUpdate();
+
+        transaction.commit();
+        session.close();
+
+        if(isDeleted > 0){
+            return true;
+        }
+        return false;
+    }
+
 
 }

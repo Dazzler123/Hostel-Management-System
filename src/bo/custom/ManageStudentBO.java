@@ -8,5 +8,5 @@ public interface ManageStudentBO {
     public ArrayList<StudentDTO> loadAll();
     public StudentDTO searchStudent(String id);
     public boolean updateStudentDetails(StudentDTO studentDTO);
-    public void deleteStudent(String s);
+    public boolean deleteStudent(String id);
 }

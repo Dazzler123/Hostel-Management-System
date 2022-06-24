@@ -23,14 +23,9 @@
             <JFXComboBox fx:id="cbxGender" prefHeight="31.0" prefWidth="261.0" promptText="Select Gender" />
          </children>
       </VBox>
-      <HBox layoutX="729.0" layoutY="687.0" prefHeight="46.0" prefWidth="360.0" spacing="20.0">
+      <HBox alignment="TOP_RIGHT" layoutX="940.0" layoutY="687.0" prefHeight="46.0" prefWidth="146.0" spacing="20.0">
          <children>
-            <JFXButton buttonType="RAISED" onAction="#btnExit" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: orange;" text="Cancel">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#btnConfirm" prefHeight="41.0" prefWidth="203.0" style="-fx-background-color: orange;" text="Confirm">
+            <JFXButton buttonType="RAISED" onAction="#btnExit" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: orange;" text="Close">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

@@ -105,7 +105,10 @@ public class ManageStudentsFormController {
     }
 
     public void btnDeleteStudent(ActionEvent actionEvent) {
-        manageStudentBO.deleteStudent(String.valueOf(txtStudentID.getText()));
+        if(manageStudentBO.deleteStudent(String.valueOf(txtStudentID.getText()))){
+            //confirmation alert
+            new Alert(Alert.AlertType.CONFIRMATION,"Student deleted.").show();
+        }
     }
 
     public void btnConfirm(ActionEvent actionEvent) {
