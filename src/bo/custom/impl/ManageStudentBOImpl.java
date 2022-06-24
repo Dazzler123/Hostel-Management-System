@@ -46,4 +46,9 @@ public class ManageStudentBOImpl implements ManageStudentBO {
         return studentDAO.update(student);
     }
 
+    @Override
+    public void deleteStudent(String s) {
+
+    }
+
 }

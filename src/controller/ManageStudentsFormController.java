@@ -105,6 +105,7 @@ public class ManageStudentsFormController {
     }
 
     public void btnDeleteStudent(ActionEvent actionEvent) {
+        manageStudentBO.deleteStudent(String.valueOf(txtStudentID.getText()));
     }
 
     public void btnConfirm(ActionEvent actionEvent) {
