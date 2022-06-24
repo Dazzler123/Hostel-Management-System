@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import util.UINavigation;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class ManageStudentsFormController {
     public JFXTextField txtName;
@@ -89,11 +90,18 @@ public class ManageStudentsFormController {
     public void btnUpdateStudent(ActionEvent actionEvent) {
         String id = String.valueOf(txtStudentID.getText());
         String name = String.valueOf(txtName.getText());
-        String address = String.valueOf(txtContactNo.getText());
-        String dob = String.valueOf(dateOfBirth.getValue());
+        String address = String.valueOf(txtAddress.getText());
+        String contactNo = String.valueOf(txtContactNo.getText());
+        LocalDate dob = dateOfBirth.getValue();
         String gender = String.valueOf(cbxGender.getSelectionModel().getSelectedItem());
 
-        manageStudentBO.updateStudentDetails();
+        if(manageStudentBO.updateStudentDetails(new StudentDTO(id,name,address,contactNo,dob,gender))){
+            //confirmation alert
+            new Alert(Alert.AlertType.CONFIRMATION,id+" Student's details updated.").show();
+
+            //refresh table
+            loadAllStudents();
+        }
     }
 
     public void btnDeleteStudent(ActionEvent actionEvent) {

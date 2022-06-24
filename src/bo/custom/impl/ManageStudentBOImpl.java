@@ -34,8 +34,16 @@ public class ManageStudentBOImpl implements ManageStudentBO {
     }
 
     @Override
-    public void updateStudentDetails() {
+    public boolean updateStudentDetails(StudentDTO studentDTO) {
+        Student student = new Student();
+        student.setStudent_id(studentDTO.getStudentID());
+        student.setName(studentDTO.getName());
+        student.setAddress(studentDTO.getAddress());
+        student.setContact_no(studentDTO.getContactNo());
+        student.setDob(studentDTO.getDate());
+        student.setGender(studentDTO.getGender());
 
+        return studentDAO.update(student);
     }
 
 }

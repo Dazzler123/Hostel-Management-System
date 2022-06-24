@@ -78,5 +78,29 @@ public class StudentDAOImpl implements StudentDAO {
         return studentList;
     }
 
+    @Override
+    public boolean update(Student student) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("UPDATE student SET name= : st_name , address = : st_address , contact_no = : st_contactNo , " +
+                "dob = : st_dob , gender = : st_gender WHERE student_id = : st_id");
+        query.setParameter("st_name",student.getName());
+        query.setParameter("st_address",student.getAddress());
+        query.setParameter("st_contactNo",student.getContact_no());
+        query.setParameter("st_dob",student.getDob());
+        query.setParameter("st_gender",student.getGender());
+        query.setParameter("st_id",student.getStudent_id());
+        int isUpdated = query.executeUpdate();
+
+        transaction.commit();
+        session.close();
+
+        if(isUpdated > 0){
+            return true;
+        }
+        return false;
+    }
+
 
 }

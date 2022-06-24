@@ -10,5 +10,5 @@ public interface StudentDAO {
     //public List<Student> getName(String id);
     public Student get(String id);
     public List<Student> getAll();
-
+    public boolean update(Student student);
 }
