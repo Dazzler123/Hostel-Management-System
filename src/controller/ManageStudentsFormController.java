@@ -45,7 +45,8 @@ public class ManageStudentsFormController {
     }
 
     private void loadAllStudents() {
-        tblStudent.setItems(manageStudentBO.loadAll());
+        ObservableList<StudentDTO> studentList = FXCollections.observableArrayList(manageStudentBO.loadAll());
+        tblStudent.setItems(studentList);
     }
 
     public void txtSearchStudent(ActionEvent actionEvent) {
