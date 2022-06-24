@@ -32,6 +32,7 @@ public class ManageStudentsFormController {
     public TableColumn colContactNo;
     public TableColumn colDOB;
     public TableColumn colGender;
+    public JFXTextField txtStudentID;
 
     //Dependency injection - property injection
     ManageStudentBO manageStudentBO = new ManageStudentBOImpl();
@@ -59,7 +60,15 @@ public class ManageStudentsFormController {
     }
 
     public void txtSearchStudent(ActionEvent actionEvent) {
-        StudentDTO studentDTO = manageStudentBO.searchStudent();
+        String id = String.valueOf(txtStudentID.getText());
+        StudentDTO studentDTO = manageStudentBO.searchStudent(id);
+
+        //set student's details to textfields
+        txtName.setText(studentDTO.getName());
+        txtAddress.setText(studentDTO.getAddress());
+        txtContactNo.setText(studentDTO.getContactNo());
+        dateOfBirth.setValue(studentDTO.getDate());
+        cbxGender.setValue(studentDTO.getGender());
     }
 
     public void btnAddNewStudent(ActionEvent actionEvent) throws IOException {

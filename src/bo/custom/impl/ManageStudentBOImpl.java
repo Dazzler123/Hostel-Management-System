@@ -22,7 +22,13 @@ public class ManageStudentBOImpl implements ManageStudentBO {
     }
 
     @Override
-    public void searchStudent() {
-
+    public StudentDTO searchStudent(String id) {
+        StudentDTO studentDTO = null;
+        for(Student s : studentDAO.search(id)){
+            studentDTO = new StudentDTO(s.getStudent_id(),s.getName(),
+                    s.getAddress(), s.getContact_no(),s.getDob(),
+                    s.getGender());
+        }
+        return studentDTO;
     }
 }

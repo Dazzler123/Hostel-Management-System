@@ -6,5 +6,5 @@ import java.util.ArrayList;
 
 public interface ManageStudentBO {
     public ArrayList<StudentDTO> loadAll();
-    public void searchStudent();
+    public StudentDTO searchStudent(String id);
 }

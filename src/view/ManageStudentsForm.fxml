@@ -66,6 +66,6 @@
             <TableColumn fx:id="colGender" prefWidth="109.0" text="Gender" />
         </columns>
       </TableView>
-      <JFXTextField layoutX="35.0" layoutY="348.0" onAction="#txtSearchStudent" prefHeight="31.0" prefWidth="301.0" promptText="Student Campus ID : " />
+      <JFXTextField fx:id="txtStudentID" layoutX="35.0" layoutY="348.0" onAction="#txtSearchStudent" prefHeight="31.0" prefWidth="301.0" promptText="Student Campus ID : " />
    </children>
 </AnchorPane>
