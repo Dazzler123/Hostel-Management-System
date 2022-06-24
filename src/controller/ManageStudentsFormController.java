@@ -77,7 +77,10 @@ public class ManageStudentsFormController {
         //confirmation alert
         new Alert(Alert.AlertType.CONFIRMATION, studentDTO.getName() + "'s details exists.").show();
 
+//        if(!manageStudentBO.isExists(id)){
 //            new Alert(Alert.AlertType.ERROR, "No student details found related to" + txtStudentID.getText() + "ID!").show();
+//        }
+
     }
 
     public void btnAddNewStudent(ActionEvent actionEvent) throws IOException {

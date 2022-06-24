@@ -12,11 +12,12 @@ public class ManageStudentBOImpl implements ManageStudentBO {
 
     //Dependency injection - property injection
     StudentDAO studentDAO = new StudentDAOImpl();
+
     @Override
     public ArrayList<StudentDTO> loadAll() {
         ArrayList<StudentDTO> students = new ArrayList<>();
-        for(Student s : studentDAO.getAll()){
-            students.add(new StudentDTO(s.getStudent_id(),s.getName(),s.getAddress(),s.getContact_no(),s.getDob(),s.getGender()));
+        for (Student s : studentDAO.getAll()) {
+            students.add(new StudentDTO(s.getStudent_id(), s.getName(), s.getAddress(), s.getContact_no(), s.getDob(), s.getGender()));
         }
         return students;
     }
@@ -24,16 +25,20 @@ public class ManageStudentBOImpl implements ManageStudentBO {
     @Override
     public StudentDTO searchStudent(String id) {
         StudentDTO studentDTO = null;
-        for(Student s : studentDAO.search(id)){
-            studentDTO = new StudentDTO(s.getStudent_id(),s.getName(),
-                    s.getAddress(), s.getContact_no(),s.getDob(),
+        for (Student s : studentDAO.search(id)) {
+            studentDTO = new StudentDTO(s.getStudent_id(), s.getName(),
+                    s.getAddress(), s.getContact_no(), s.getDob(),
                     s.getGender());
         }
         return studentDTO;
     }
 
-    @Override
-    public void isExists() {
-
-    }
+//    @Override
+//    public boolean isExists(String id) {
+//        if (studentDAO.get(id) == null) {
+//            return false;
+//        }else{
+//            return true;
+//        }
+//    }
 }
