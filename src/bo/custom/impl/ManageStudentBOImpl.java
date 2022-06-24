@@ -33,12 +33,4 @@ public class ManageStudentBOImpl implements ManageStudentBO {
         return studentDTO;
     }
 
-//    @Override
-//    public boolean isExists(String id) {
-//        if (studentDAO.get(id) == null) {
-//            return false;
-//        }else{
-//            return true;
-//        }
-//    }
 }
