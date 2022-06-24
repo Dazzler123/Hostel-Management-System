@@ -5,6 +5,7 @@ import bo.custom.impl.ManageStudentBOImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import dao.custom.StudentDAO;
 import dto.StudentDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -58,6 +59,7 @@ public class ManageStudentsFormController {
     }
 
     public void txtSearchStudent(ActionEvent actionEvent) {
+        StudentDTO studentDTO = manageStudentBO.searchStudent();
     }
 
     public void btnAddNewStudent(ActionEvent actionEvent) throws IOException {

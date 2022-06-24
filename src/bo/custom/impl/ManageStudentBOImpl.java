@@ -20,4 +20,9 @@ public class ManageStudentBOImpl implements ManageStudentBO {
         }
         return students;
     }
+
+    @Override
+    public void searchStudent() {
+
+    }
 }
