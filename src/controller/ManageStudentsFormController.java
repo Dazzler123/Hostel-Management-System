@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import util.UINavigation;
 
@@ -35,6 +36,13 @@ public class ManageStudentsFormController {
     ManageStudentBO manageStudentBO = new ManageStudentBOImpl();
 
     public void initialize(){
+        colID.setCellValueFactory(new PropertyValueFactory<>("studentID"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colContactNo.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
+        colDOB.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+
         //load gender types to combobox
         ObservableList<String> genderList = FXCollections.observableArrayList("Male","Female","Other");
         cbxGender.setItems(genderList);
