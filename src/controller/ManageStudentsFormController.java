@@ -1,5 +1,7 @@
 package controller;
 
+import bo.custom.ManageStudentBO;
+import bo.custom.impl.ManageStudentBOImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
@@ -29,12 +31,21 @@ public class ManageStudentsFormController {
     public TableColumn colDOB;
     public TableColumn colGender;
 
+    //Dependency injection - property injection
+    ManageStudentBO manageStudentBO = new ManageStudentBOImpl();
+
     public void initialize(){
         //load gender types to combobox
         ObservableList<String> genderList = FXCollections.observableArrayList("Male","Female","Other");
         cbxGender.setItems(genderList);
 
+        //load all students to the table
+        loadAllStudents();
 
+    }
+
+    private void loadAllStudents() {
+        tblStudent.setItems(manageStudentBO.loadAll());
     }
 
     public void txtSearchStudent(ActionEvent actionEvent) {
