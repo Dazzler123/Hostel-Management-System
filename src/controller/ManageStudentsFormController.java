@@ -64,23 +64,22 @@ public class ManageStudentsFormController {
         String id = String.valueOf(txtStudentID.getText());
         StudentDTO studentDTO = manageStudentBO.searchStudent(id);
 
-        //set student's details to textfields
-        txtName.setText(studentDTO.getName());
-        txtAddress.setText(studentDTO.getAddress());
-        txtContactNo.setText(studentDTO.getContactNo());
-        dateOfBirth.setValue(studentDTO.getDate());
-        cbxGender.setValue(studentDTO.getGender());
+        if (!(studentDTO == null)) {
+            //set student's details to textfields
+            txtName.setText(studentDTO.getName());
+            txtAddress.setText(studentDTO.getAddress());
+            txtContactNo.setText(studentDTO.getContactNo());
+            dateOfBirth.setValue(studentDTO.getDate());
+            cbxGender.setValue(studentDTO.getGender());
 
-        //disable student id input field for no later changes
-        txtStudentID.setDisable(true);
+            //disable student id input field for no later changes
+            txtStudentID.setDisable(true);
 
-        //confirmation alert
-        new Alert(Alert.AlertType.CONFIRMATION, studentDTO.getName() + "'s details exists.").show();
-
-//        if(!manageStudentBO.isExists(id)){
-//            new Alert(Alert.AlertType.ERROR, "No student details found related to" + txtStudentID.getText() + "ID!").show();
-//        }
-
+            //confirmation alert
+            new Alert(Alert.AlertType.CONFIRMATION, studentDTO.getName() + "'s details exists.").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "No student details found related to " + txtStudentID.getText() + " ID!").show();
+        }
     }
 
     public void btnAddNewStudent(ActionEvent actionEvent) throws IOException {
