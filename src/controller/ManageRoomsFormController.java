@@ -78,6 +78,9 @@ public class ManageRoomsFormController {
         if(manageRoomBO.updateRoom(new RoomDTO(id,type,keyMoney,qty))){
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION,"Room details updated.").show();
+
+            //refresh table
+            loadAllRooms();
         }else{
             new Alert(Alert.AlertType.ERROR,"Something went wrong.").show();
         }
