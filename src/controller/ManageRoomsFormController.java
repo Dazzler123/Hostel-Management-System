@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,8 +28,8 @@ public class ManageRoomsFormController {
 
     //Dependency injection - property injection
     ManageRoomBO manageRoomBO = new ManageRoomBOImpl();
-    
-    public void initialize(){
+
+    public void initialize() {
         colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomID"));
         colType.setCellValueFactory(new PropertyValueFactory<>("type"));
         colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
@@ -44,6 +45,20 @@ public class ManageRoomsFormController {
     }
 
     public void txtSearchRoom(ActionEvent actionEvent) {
+        String id = txtRoomID.getText();
+        RoomDTO roomDTO = manageRoomBO.getRoom(id);
+
+        if (!(roomDTO == null)) {
+            //set details to textfields
+            txtRoomType.setText(roomDTO.getType());
+            txtKeyMoney.setText(String.valueOf(roomDTO.getKeyMoney()));
+            txtRoomQty.setText(roomDTO.getQty());
+
+            //disable room id input field for no later changes
+            txtRoomID.setDisable(true);
+        } else {
+            new Alert(Alert.AlertType.ERROR, "No such room found with " + roomDTO.getRoomID() + " ID!").show();
+        }
     }
 
     public void btnAddNewRoom(ActionEvent actionEvent) {

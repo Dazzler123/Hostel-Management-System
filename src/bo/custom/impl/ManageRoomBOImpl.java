@@ -21,4 +21,10 @@ public class ManageRoomBOImpl implements ManageRoomBO {
         }
         return roomList;
     }
+
+    @Override
+    public RoomDTO getRoom(String id) {
+        Room r = roomDAO.get(id);
+        return new RoomDTO(r.getRoom_id(),r.getType(),r.getKey_money(),r.getQty());
+    }
 }
