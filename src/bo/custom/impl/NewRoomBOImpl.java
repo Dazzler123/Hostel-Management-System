@@ -8,7 +8,7 @@ import entity.Room;
 
 public class NewRoomBOImpl implements NewRoomBO {
 
-    //Dependeny injection - property injection
+    //Dependency injection - property injection
     RoomDAO roomDAO = new RoomDAOImpl();
 
     @Override

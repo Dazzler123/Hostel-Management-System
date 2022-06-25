@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import dto.RoomDTO;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 public class AddNewRoomFormController {
@@ -23,7 +24,10 @@ public class AddNewRoomFormController {
         double keyMoney = Double.parseDouble(txtKeyMoney.getText());
         String qty = txtRoomQty.getText();
 
-        newRoomBO.saveRoom(new RoomDTO(id,type,keyMoney,qty));
+        if(newRoomBO.saveRoom(new RoomDTO(id,type,keyMoney,qty))){
+            //confirmation alert
+            new Alert(Alert.AlertType.CONFIRMATION,"Room saved successfully.").show();
+        }
     }
 
     public void btnExit(ActionEvent actionEvent) {
