@@ -13,6 +13,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import util.UINavigation;
+
+import java.io.IOException;
 
 public class ManageRoomsFormController {
 
@@ -61,7 +64,9 @@ public class ManageRoomsFormController {
         }
     }
 
-    public void btnAddNewRoom(ActionEvent actionEvent) {
+    public void btnAddNewRoom(ActionEvent actionEvent) throws IOException {
+        //to add new room ui
+        UINavigation.setUI("AddNewRoomForm","Add New Room");
     }
 
     public void btnUpdateRoom(ActionEvent actionEvent) {
