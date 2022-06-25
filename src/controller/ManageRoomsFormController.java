@@ -87,6 +87,16 @@ public class ManageRoomsFormController {
     }
 
     public void btnDeleteRoom(ActionEvent actionEvent) {
+        String id = txtRoomID.getText();
+        if(manageRoomBO.deleteRoom(id)){
+            //confirmation alert
+            new Alert(Alert.AlertType.CONFIRMATION,"Room deleted.").show();
+
+            //refresh table
+            loadAllRooms();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Something went wrong.").show();
+        }
     }
 
     public void btnExit(ActionEvent actionEvent) {
