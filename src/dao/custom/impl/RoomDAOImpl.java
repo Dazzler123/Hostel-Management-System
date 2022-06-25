@@ -80,4 +80,26 @@ public class RoomDAOImpl implements RoomDAO {
 
         return true;
     }
+
+    @Override
+    public boolean update(Room room) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("UPDATE room SET type = : r_type, key_money = : r_keyMoney, qty = : r_qty WHERE room_id = : r_id");
+        query.setParameter("r_type",room.getType());
+        query.setParameter("r_keyMoney",room.getKey_money());
+        query.setParameter("r_qty", room.getQty());
+        query.setParameter("r_id", room.getRoom_id());
+        int isUpdated = query.executeUpdate();
+
+        transaction.commit();
+        session.close();
+
+        if(isUpdated > 0)
+            return true;
+        else{
+            return false;
+        }
+    }
 }
