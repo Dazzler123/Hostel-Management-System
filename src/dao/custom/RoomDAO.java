@@ -11,4 +11,5 @@ public interface RoomDAO {
     public List<Room> search(String id);
     public boolean save(Room room);
     public boolean update(Room room);
+    public boolean delete(String id);
 }

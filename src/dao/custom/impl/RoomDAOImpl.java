@@ -102,4 +102,22 @@ public class RoomDAOImpl implements RoomDAO {
             return false;
         }
     }
+
+    public boolean delete(String id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("DELETE FROM room WHERE room_id = : id");
+        query.setParameter("id",id);
+        int isDeleted = query.executeUpdate();
+
+        transaction.commit();
+        session.close();
+        
+        if(isDeleted > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
