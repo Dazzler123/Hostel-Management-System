@@ -9,4 +9,5 @@ public interface RoomDAO {
     public Room get(String id);
     public boolean updateQty(String id, String qty);
     public List<Room> search(String id);
+    public boolean save(Room room);
 }

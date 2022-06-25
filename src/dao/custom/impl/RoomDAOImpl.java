@@ -68,4 +68,16 @@ public class RoomDAOImpl implements RoomDAO {
 
         return list;
     }
+
+    public boolean save(Room room) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.save(room);
+
+        transaction.commit();
+        session.close();
+
+        return true;
+    }
 }
