@@ -74,9 +74,6 @@ public class ManageStudentsFormController {
 
             //disable student id input field for no later changes
             txtStudentID.setDisable(true);
-
-//            //confirmation alert
-//            new Alert(Alert.AlertType.CONFIRMATION, studentDTO.getName() + "'s details exists.").show();
         } else {
             new Alert(Alert.AlertType.ERROR, "No student details found related to " + txtStudentID.getText() + " ID!").show();
         }
@@ -105,13 +102,11 @@ public class ManageStudentsFormController {
     }
 
     public void btnDeleteStudent(ActionEvent actionEvent) {
-        if(manageStudentBO.deleteStudent(String.valueOf(txtStudentID.getText()))){
+        String id = txtStudentID.getText();
+        if(manageStudentBO.deleteStudent(id)){
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION,"Student deleted.").show();
         }
-    }
-
-    public void btnConfirm(ActionEvent actionEvent) {
     }
 
     public void btnExit(ActionEvent actionEvent) {
