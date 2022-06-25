@@ -41,4 +41,9 @@ public class ManageRoomBOImpl implements ManageRoomBO {
 
         return roomDAO.update(room);
     }
+
+    @Override
+    public void deleteRoom() {
+
+    }
 }

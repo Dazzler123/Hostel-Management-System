@@ -8,4 +8,5 @@ public interface ManageRoomBO {
     public ArrayList<RoomDTO> loadAll();
     public RoomDTO getRoom(String id);
     public boolean updateRoom(RoomDTO roomDTO);
+    public void deleteRoom();
 }
