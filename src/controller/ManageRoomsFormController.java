@@ -70,6 +70,17 @@ public class ManageRoomsFormController {
     }
 
     public void btnUpdateRoom(ActionEvent actionEvent) {
+        String id = txtRoomID.getText();
+        String type = txtRoomType.getText();
+        double keyMoney = Double.parseDouble(txtKeyMoney.getText());
+        String qty = txtRoomQty.getText();
+
+        if(manageRoomBO.updateRoom(new RoomDTO(id,type,keyMoney,qty))){
+            //confirmation alert
+            new Alert(Alert.AlertType.CONFIRMATION,"Room details updated.").show();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Something went wrong.").show();
+        }
     }
 
     public void btnDeleteRoom(ActionEvent actionEvent) {

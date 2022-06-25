@@ -32,7 +32,13 @@ public class ManageRoomBOImpl implements ManageRoomBO {
     }
 
     @Override
-    public void updateRoom() {
+    public boolean updateRoom(RoomDTO roomDTO) {
+        Room room = new Room();
+        room.setRoom_id(roomDTO.getRoomID());
+        room.setType(roomDTO.getType());
+        room.setKey_money(roomDTO.getKeyMoney());
+        room.setQty(roomDTO.getQty());
 
+        return roomDAO.update(room);
     }
 }
