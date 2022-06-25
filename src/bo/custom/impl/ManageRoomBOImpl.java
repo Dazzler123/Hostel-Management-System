@@ -30,4 +30,9 @@ public class ManageRoomBOImpl implements ManageRoomBO {
         }
         return roomDTO;
     }
+
+    @Override
+    public void updateRoom() {
+
+    }
 }
