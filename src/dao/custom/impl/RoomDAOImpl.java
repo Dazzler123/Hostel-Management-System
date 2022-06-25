@@ -53,4 +53,19 @@ public class RoomDAOImpl implements RoomDAO {
         }
         return false;
     }
+
+    @Override
+    public List<Room> search(String id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("FROM room WHERE room_id = : id");
+        query.setParameter("id",id);
+        List<Room> list = query.list();
+
+        transaction.commit();
+        session.close();
+
+        return list;
+    }
 }

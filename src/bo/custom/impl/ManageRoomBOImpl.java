@@ -24,7 +24,10 @@ public class ManageRoomBOImpl implements ManageRoomBO {
 
     @Override
     public RoomDTO getRoom(String id) {
-        Room r = roomDAO.get(id);
-        return new RoomDTO(r.getRoom_id(),r.getType(),r.getKey_money(),r.getQty());
+        RoomDTO roomDTO = null;
+        for(Room r :  roomDAO.search(id)){
+            roomDTO = new RoomDTO(r.getRoom_id(),r.getType(),r.getKey_money(),r.getQty());
+        }
+        return roomDTO;
     }
 }
