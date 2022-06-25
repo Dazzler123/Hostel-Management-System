@@ -25,7 +25,8 @@ public class UserControlsFormController {
         UINavigation.setUI("EditUnPwdForm","Edit Username or Password");
     }
 
-    public void btnKeyMoneyNotPaid(ActionEvent actionEvent) {
+    public void btnKeyMoneyNotPaid(ActionEvent actionEvent) throws IOException {
+        UINavigation.setUI("HaveNotPaidForm","Student Details");
     }
 
     public void btnStudentDetails(ActionEvent actionEvent) {

@@ -35,7 +35,7 @@
             </JFXButton>
          </children>
       </HBox>
-      <Label fx:id="lblDate" layoutX="546.0" layoutY="14.0" prefHeight="28.0" prefWidth="194.0" textFill="#1e00ff">
+      <Label fx:id="lblDate" layoutX="545.0" layoutY="14.0" prefHeight="28.0" prefWidth="194.0" textFill="#1e00ff">
          <font>
             <Font name="System Bold Italic" size="19.0" />
          </font>
