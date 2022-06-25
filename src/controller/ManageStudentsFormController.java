@@ -75,8 +75,8 @@ public class ManageStudentsFormController {
             //disable student id input field for no later changes
             txtStudentID.setDisable(true);
 
-            //confirmation alert
-            new Alert(Alert.AlertType.CONFIRMATION, studentDTO.getName() + "'s details exists.").show();
+//            //confirmation alert
+//            new Alert(Alert.AlertType.CONFIRMATION, studentDTO.getName() + "'s details exists.").show();
         } else {
             new Alert(Alert.AlertType.ERROR, "No student details found related to " + txtStudentID.getText() + " ID!").show();
         }
