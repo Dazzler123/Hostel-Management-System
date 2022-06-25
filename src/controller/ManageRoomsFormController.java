@@ -57,7 +57,7 @@ public class ManageRoomsFormController {
             //disable room id input field for no later changes
             txtRoomID.setDisable(true);
         } else {
-            new Alert(Alert.AlertType.ERROR, "No such room found with " + roomDTO.getRoomID() + " ID!").show();
+            new Alert(Alert.AlertType.ERROR, "No such room found with " + txtRoomID.getText() + " ID!").show();
         }
     }
 
