@@ -1,8 +1,8 @@
 package bo.custom.impl;
 
 import bo.custom.ManageStudentBO;
+import dao.DAOFactory;
 import dao.custom.StudentDAO;
-import dao.custom.impl.StudentDAOImpl;
 import dto.StudentDTO;
 import entity.Student;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ManageStudentBOImpl implements ManageStudentBO {
 
     //Dependency injection - property injection
-    StudentDAO studentDAO = new StudentDAOImpl();
+    private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     @Override
     public ArrayList<StudentDTO> loadAll() {

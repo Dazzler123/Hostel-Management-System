@@ -3,7 +3,6 @@ package bo.custom.impl;
 import bo.custom.ManageRoomBO;
 import dao.DAOFactory;
 import dao.custom.RoomDAO;
-import dao.custom.impl.RoomDAOImpl;
 import dto.RoomDTO;
 import entity.Room;
 
