@@ -1,6 +1,7 @@
 package bo.custom.impl;
 
 import bo.custom.NewStudentBO;
+import dao.DAOFactory;
 import dao.custom.StudentDAO;
 import dao.custom.impl.StudentDAOImpl;
 import dto.StudentDTO;
@@ -10,7 +11,7 @@ import entity.Student;
 public class NewStudentBOImpl implements NewStudentBO {
 
     //Dependency injection - property injection
-    private final StudentDAO studentDAO = new StudentDAOImpl();
+    private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     @Override
     public boolean saveStudent(StudentDTO studentDTO) {
