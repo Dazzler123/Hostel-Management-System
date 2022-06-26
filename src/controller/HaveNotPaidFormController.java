@@ -1,5 +1,7 @@
 package controller;
 
+import bo.BOFactory;
+import bo.custom.ReportsBO;
 import dto.StudentDTO;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
@@ -19,6 +21,9 @@ public class HaveNotPaidFormController {
     public TableColumn colDOB;
     public TableColumn colGender;
     public Label lblDate;
+
+    //Dependency injection - property injection
+    private final ReportsBO reportsBO = (ReportsBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.REPORT);
 
     public void initialize(){
         //set today's date
