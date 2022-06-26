@@ -1,10 +1,11 @@
 package dao.custom;
 
+import dao.CrudDAO;
 import entity.Student;
 
 import java.util.List;
 
-public interface StudentDAO {
+public interface StudentDAO extends CrudDAO<Student,String> {
     public boolean save(Student student);
     public List<Student> search(String id);
     //public List<Student> getName(String id);

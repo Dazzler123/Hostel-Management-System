@@ -11,6 +11,21 @@ import java.util.List;
 
 public class ReserveDAOImpl implements ReserveDAO {
     @Override
+    public List<Reserve> getAll() {
+        return null;
+    }
+
+    @Override
+    public Reserve get(String s) {
+        return null;
+    }
+
+    @Override
+    public List<Reserve> search(String s) {
+        return null;
+    }
+
+    @Override
     public boolean save(Reserve reserve) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -21,6 +36,16 @@ public class ReserveDAOImpl implements ReserveDAO {
         session.close();
 
         return true;
+    }
+
+    @Override
+    public boolean update(Reserve entity) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String s) {
+        return false;
     }
 
     @Override
