@@ -1,6 +1,7 @@
 package bo.custom.impl;
 
 import bo.custom.ManageRoomBO;
+import dao.DAOFactory;
 import dao.custom.RoomDAO;
 import dao.custom.impl.RoomDAOImpl;
 import dto.RoomDTO;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 public class ManageRoomBOImpl implements ManageRoomBO {
 
     //Dependency injection - property injection
-    RoomDAO roomDAO = new RoomDAOImpl();
+    private final RoomDAO roomDAO = (RoomDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.ROOM);
 
     @Override
     public ArrayList<RoomDTO> loadAll() {
