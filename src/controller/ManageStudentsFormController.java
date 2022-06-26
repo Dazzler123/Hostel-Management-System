@@ -106,6 +106,11 @@ public class ManageStudentsFormController {
         if(manageStudentBO.deleteStudent(id)){
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION,"Student deleted.").show();
+
+            //refresh table
+            loadAllStudents();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Something went wrong!").show();
         }
     }
 
