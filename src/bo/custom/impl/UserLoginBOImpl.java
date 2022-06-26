@@ -1,13 +1,14 @@
 package bo.custom.impl;
 
 import bo.custom.UserLoginBO;
+import dao.DAOFactory;
 import dao.custom.UserCredentialDAO;
 import dao.custom.impl.UserCredentialDAOImpl;
 
 public class UserLoginBOImpl implements UserLoginBO {
 
     //Dependency injection - property injection
-    UserCredentialDAO credentialDAO = new UserCredentialDAOImpl();
+    private final UserCredentialDAO credentialDAO = (UserCredentialDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.USER_CREDENTIAL);
 
 
     @Override
