@@ -1,5 +1,6 @@
 package controller;
 
+import bo.BOFactory;
 import bo.custom.NewStudentBO;
 import bo.custom.impl.NewStudentBOImpl;
 import com.jfoenix.controls.JFXComboBox;
@@ -24,7 +25,7 @@ public class AddNewStudentFormController {
     public JFXDatePicker dateOfBirth;
 
     //Dependency injection - property injection
-    private final NewStudentBO newStudentBO = new NewStudentBOImpl();
+    private final NewStudentBO newStudentBO = (NewStudentBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.NEW_STUDENT);
 
     public void initialize(){
         //set gender types to combobox
@@ -34,10 +35,10 @@ public class AddNewStudentFormController {
     }
 
     public void btnSave(ActionEvent actionEvent) {
-        String id = String.valueOf(txtStudentID.getText());
-        String name = String.valueOf(txtName.getText());
-        String address = String.valueOf(txtAddress.getText());
-        String contactNo = String.valueOf(txtContactNo.getText());
+        String id = txtStudentID.getText();
+        String name = txtName.getText();
+        String address = txtAddress.getText();
+        String contactNo = txtContactNo.getText();
         LocalDate dob = dateOfBirth.getValue();
         String gender = String.valueOf(cbxGender.getSelectionModel().getSelectedItem());
 
