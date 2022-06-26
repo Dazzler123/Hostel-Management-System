@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="601.0" prefWidth="965.0" style="-fx-background-color: #87cefa;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hms.controller.RegistrationFormController">
+   <children>
+      <JFXButton buttonType="RAISED" layoutX="358.0" layoutY="338.0" onAction="#btnAddNewStudent" prefHeight="31.0" prefWidth="169.0" style="-fx-background-color: orange;" text="Add New Student">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="25.0" layoutY="14.0" text="Rooms Available">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblRooms" layoutX="14.0" layoutY="49.0" prefHeight="230.0" prefWidth="933.0">
+        <columns>
+          <TableColumn fx:id="colRoomID" prefWidth="154.0" text="Room Type ID" />
+          <TableColumn fx:id="colType" prefWidth="463.0" text="Type" />
+            <TableColumn fx:id="colKeyMoney" prefWidth="179.0" text="Key Money (LKR.)" />
+            <TableColumn fx:id="colQty" prefWidth="136.0" text="Rooms QTY" />
+        </columns>
+      </TableView>
+      <JFXTextField fx:id="txtStudentID" layoutX="32.0" layoutY="337.0" onAction="#txtSearchStudent" promptText="Enter Student ID :" />
+      <Label layoutX="32.0" layoutY="300.0" text="Enter Student' s Campus ID to search">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="288.0" layoutY="343.0" text="or">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="412.0" text="Pay Key Money">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <JFXRadioButton fx:id="rdBtnPayNow" layoutX="32.0" layoutY="450.0" text="Pay now" />
+      <JFXRadioButton fx:id="rdBtnPayLater" layoutX="138.0" layoutY="450.0" text="Pay Later" />
+      <HBox layoutX="625.0" layoutY="531.0" prefHeight="46.0" prefWidth="301.0" spacing="20.0">
+         <children>
+            <JFXButton buttonType="RAISED" onAction="#btnExit" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: orange;" text="Cancel">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" onAction="#btnRegister" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: orange;" text="Register">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <Label fx:id="lblName" layoutX="558.0" layoutY="300.0" prefHeight="21.0" prefWidth="368.0">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
