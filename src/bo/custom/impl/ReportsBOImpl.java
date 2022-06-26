@@ -1,4 +1,6 @@
 package bo.custom.impl;
 
-public class ReportsBOImpl {
+import bo.custom.ReportsBO;
+
+public class ReportsBOImpl implements ReportsBO {
 }
