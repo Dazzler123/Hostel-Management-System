@@ -109,8 +109,6 @@ public class ManageStudentsFormController {
 
             //refresh table
             loadAllStudents();
-        }else{
-            new Alert(Alert.AlertType.ERROR,"Something went wrong!").show();
         }
     }
 
