@@ -120,10 +120,11 @@ public class RoomDAOImpl implements RoomDAO {
         transaction.commit();
         session.close();
 
-        if (isDetached > 0) {
-            if (isDeleted > 0) {
+        if (isDeleted > 0) {
+            if (isDetached > 0) {
                 return true;
             }
+            return true;
         }
         return false;
     }
