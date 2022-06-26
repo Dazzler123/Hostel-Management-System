@@ -1,6 +1,7 @@
 package bo.custom.impl;
 
 import bo.custom.ReservationBO;
+import dao.DAOFactory;
 import dao.custom.ReserveDAO;
 import dao.custom.RoomDAO;
 import dao.custom.StudentDAO;
@@ -18,9 +19,9 @@ import java.util.ArrayList;
 public class ReservationBOImpl implements ReservationBO {
 
     //Dependency injection - property injection
-    RoomDAO roomDAO = new RoomDAOImpl();
-    StudentDAO studentDAO = new StudentDAOImpl();
-    ReserveDAO reserveDAO = new ReserveDAOImpl();
+    RoomDAO roomDAO = (RoomDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.ROOM);
+    StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
+    ReserveDAO reserveDAO = (ReserveDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.RESERVE);
 
     @Override
     public String generateID() {
