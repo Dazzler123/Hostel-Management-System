@@ -1,15 +1,15 @@
 package bo.custom.impl;
 
 import bo.custom.NewRoomBO;
+import dao.DAOFactory;
 import dao.custom.RoomDAO;
-import dao.custom.impl.RoomDAOImpl;
 import dto.RoomDTO;
 import entity.Room;
 
 public class NewRoomBOImpl implements NewRoomBO {
 
     //Dependency injection - property injection
-    RoomDAO roomDAO = new RoomDAOImpl();
+    private final RoomDAO roomDAO = (RoomDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.ROOM);
 
     @Override
     public boolean saveRoom(RoomDTO roomDTO) {
