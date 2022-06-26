@@ -1,4 +1,6 @@
 package bo.custom;
 
-public interface ReportsBO {
+import bo.SuperBO;
+
+public interface ReportsBO extends SuperBO {
 }
