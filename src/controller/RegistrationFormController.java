@@ -1,5 +1,6 @@
 package controller;
 
+import bo.BOFactory;
 import bo.custom.ReservationBO;
 import bo.custom.impl.ReservationBOImpl;
 import com.jfoenix.controls.JFXRadioButton;
@@ -33,7 +34,7 @@ public class RegistrationFormController {
     public Label lblName;
 
     //Dependency injection - property injection
-    ReservationBO reservationBO = new ReservationBOImpl();
+    ReservationBO reservationBO = (ReservationBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.RESERVE);
 
     public void initialize() {
         colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomID"));

@@ -2,7 +2,6 @@ package controller;
 
 import bo.BOFactory;
 import bo.custom.ManageRoomBO;
-import bo.custom.impl.ManageRoomBOImpl;
 import com.jfoenix.controls.JFXTextField;
 import dto.RoomDTO;
 import javafx.collections.FXCollections;
