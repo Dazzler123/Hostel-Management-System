@@ -1,5 +1,6 @@
 package controller;
 
+import bo.BOFactory;
 import bo.custom.UserLoginBO;
 import bo.custom.impl.UserLoginBOImpl;
 import com.jfoenix.controls.JFXPasswordField;
@@ -17,7 +18,7 @@ public class EditUnPwdFormController {
     public JFXPasswordField pwdNewPassword;
 
     //Dependency injection - property injection
-    UserLoginBO userLoginBO = new UserLoginBOImpl();
+    private final UserLoginBO userLoginBO = (UserLoginBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.USER_CREDENTIALS);
 
     public void initialize() {
         txtNewUsername.setDisable(true);
