@@ -1,7 +1,7 @@
 package controller;
 
+import bo.BOFactory;
 import bo.custom.ManageStudentBO;
-import bo.custom.impl.ManageStudentBOImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
@@ -36,7 +36,7 @@ public class ManageStudentsFormController {
     public JFXTextField txtStudentID;
 
     //Dependency injection - property injection
-    ManageStudentBO manageStudentBO = new ManageStudentBOImpl();
+    private final ManageStudentBO manageStudentBO = (ManageStudentBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.MANAGE_STUDENT);
 
     public void initialize() {
         colID.setCellValueFactory(new PropertyValueFactory<>("studentID"));
@@ -98,8 +98,6 @@ public class ManageStudentsFormController {
 
             //refresh table
             loadAllStudents();
-        }else{
-            new Alert(Alert.AlertType.ERROR,"Something went wrong!").show();
         }
     }
 
@@ -111,6 +109,8 @@ public class ManageStudentsFormController {
 
             //refresh table
             loadAllStudents();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Something went wrong!").show();
         }
     }
 
