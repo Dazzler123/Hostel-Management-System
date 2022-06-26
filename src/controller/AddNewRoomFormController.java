@@ -1,5 +1,6 @@
 package controller;
 
+import bo.BOFactory;
 import bo.custom.NewRoomBO;
 import bo.custom.impl.NewRoomBOImpl;
 import com.jfoenix.controls.JFXTextField;
@@ -16,7 +17,7 @@ public class AddNewRoomFormController {
     public JFXTextField txtRoomQty;
 
     //Dependency injection - property injection
-    NewRoomBO newRoomBO = new NewRoomBOImpl();
+    private final NewRoomBO newRoomBO = (NewRoomBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.NEW_ROOM);
 
     public void btnSave(ActionEvent actionEvent) {
         String id = txtRoomID.getText();

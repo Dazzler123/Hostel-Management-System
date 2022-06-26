@@ -6,10 +6,9 @@ public class BOFactory {
     private static BOFactory boFactory;
 
     private BOFactory() {
-
     }
 
-    public static BOFactory getInstance() {
+    public static BOFactory getBOFactory() {
         return boFactory == null ? boFactory = new BOFactory() : boFactory;
     }
 
