@@ -1,5 +1,6 @@
 package controller;
 
+import dto.StudentDTO;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -10,7 +11,7 @@ import javafx.stage.Stage;
 import java.time.LocalDate;
 
 public class HaveNotPaidFormController {
-    public TableView tblStudent;
+    public TableView<StudentDTO> tblStudent;
     public TableColumn colID;
     public TableColumn colName;
     public TableColumn colAddress;

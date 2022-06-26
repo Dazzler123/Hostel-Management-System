@@ -1,12 +1,14 @@
 package dao.custom.impl;
 
 import dao.custom.StudentDAO;
+import entity.Reserve;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
@@ -27,7 +29,7 @@ public class StudentDAOImpl implements StudentDAO {
         Transaction transaction = session.beginTransaction();
 
         Query query = session.createQuery("FROM student WHERE student_id = : id");
-        query.setParameter("id",id);
+        query.setParameter("id", id);
         List<Student> studentId = query.list();
 
         transaction.commit();
@@ -85,18 +87,18 @@ public class StudentDAOImpl implements StudentDAO {
 
         Query query = session.createQuery("UPDATE student SET name= : st_name , address = : st_address , contact_no = : st_contactNo , " +
                 "dob = : st_dob , gender = : st_gender WHERE student_id = : st_id");
-        query.setParameter("st_name",student.getName());
-        query.setParameter("st_address",student.getAddress());
-        query.setParameter("st_contactNo",student.getContact_no());
-        query.setParameter("st_dob",student.getDob());
-        query.setParameter("st_gender",student.getGender());
-        query.setParameter("st_id",student.getStudent_id());
+        query.setParameter("st_name", student.getName());
+        query.setParameter("st_address", student.getAddress());
+        query.setParameter("st_contactNo", student.getContact_no());
+        query.setParameter("st_dob", student.getDob());
+        query.setParameter("st_gender", student.getGender());
+        query.setParameter("st_id", student.getStudent_id());
         int isUpdated = query.executeUpdate();
 
         transaction.commit();
         session.close();
 
-        if(isUpdated > 0){
+        if (isUpdated > 0) {
             return true;
         }
         return false;
@@ -107,15 +109,23 @@ public class StudentDAOImpl implements StudentDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("DELETE FROM student WHERE student_id = : id");
-        query.setParameter("id",id);
-        int isDeleted = query.executeUpdate();
+        Student student = session.get(Student.class, id);
+
+        Query query = session.createQuery("DELETE FROM Reserve WHERE student_id = : s");
+        query.setParameter("s", student);
+        int isDetached = query.executeUpdate();
+
+        Query query1 = session.createQuery("DELETE FROM student WHERE student_id = : id");
+        query1.setParameter("id", id);
+        int isDeleted = query1.executeUpdate();
 
         transaction.commit();
         session.close();
 
-        if(isDeleted > 0){
-            return true;
+        if (isDetached > 0) {
+            if (isDeleted > 0){
+                return true;
+            }
         }
         return false;
     }
