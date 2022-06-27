@@ -87,9 +87,9 @@ public class RegistrationFormController {
         if (rdBtnPayNow.isSelected()) {
             status = "Paid";
         } else if (rdBtnPayLater.isSelected()) {
-            status = "Not Paid Yet";
+            status = "Not Paid";
         } else {
-            status = "Not Specified";
+            status = "Not Paid";
         }
 
         //place reservation
