@@ -9,5 +9,5 @@ import java.util.ArrayList;
 public interface ReportsBO extends SuperBO {
     public ArrayList<ReserveDTO> getReservation();
     public StudentDTO getStudent(String id);
-    public void getRooms(String text);
+    public ArrayList<StudentDTO> getRooms(String text);
 }

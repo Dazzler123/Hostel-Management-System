@@ -39,11 +39,20 @@ public class ReportsBOImpl implements ReportsBO {
     }
 
     @Override
-    public void getRooms(String id) {
+    public ArrayList<StudentDTO> getRooms(String id) {
+        ArrayList<Student> studentList = new ArrayList<>();
+        ArrayList<StudentDTO> list = new ArrayList<>();
         //get room as an object
         Room room = roomDAO.get(id);
-        for(Reserve r : reserveDAO.getReservations(room)){
-
+        //get reservations for this room
+        for (Reserve r : reserveDAO.getReservations(room)) {
+            //get students
+            studentList.add(studentDAO.get(r.getStudent_id().getStudent_id()));
         }
+
+        for (Student s : studentList) {
+            list.add(new StudentDTO(s.getStudent_id(), s.getName(), s.getAddress(), s.getContact_no(), s.getDob(), s.getGender()));
+        }
+        return list;
     }
 }
