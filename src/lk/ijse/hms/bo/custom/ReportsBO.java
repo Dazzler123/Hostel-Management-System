@@ -6,5 +6,5 @@ import lk.ijse.hms.dto.StudentDTO;
 import java.util.ArrayList;
 
 public interface ReportsBO extends SuperBO {
-    public ArrayList<StudentDTO> getStudents();
+    public ArrayList<StudentDTO> getStudents(String id);
 }
