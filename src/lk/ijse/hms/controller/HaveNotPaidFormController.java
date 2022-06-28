@@ -1,5 +1,7 @@
 package lk.ijse.hms.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lk.ijse.hms.bo.BOFactory;
 import lk.ijse.hms.bo.custom.ReportsBO;
 import lk.ijse.hms.dto.StudentDTO;
@@ -9,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import lk.ijse.hms.entity.Student;
 
 import java.time.LocalDate;
 
@@ -30,7 +33,8 @@ public class HaveNotPaidFormController {
         lblDate.setText(String.valueOf(LocalDate.now()));
 
         //load all student details
-        reportsBO.getStudents();
+        ObservableList<StudentDTO> studentList = FXCollections.observableArrayList(reportsBO.getStudents());
+        tblStudent.setItems(studentList);
     }
 
     public void btnExit(ActionEvent actionEvent) {
