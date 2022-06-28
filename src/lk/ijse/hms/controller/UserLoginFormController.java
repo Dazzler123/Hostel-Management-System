@@ -1,5 +1,6 @@
 package lk.ijse.hms.controller;
 
+import javafx.scene.input.MouseEvent;
 import lk.ijse.hms.bo.BOFactory;
 import lk.ijse.hms.bo.custom.UserLoginBO;
 import com.jfoenix.controls.JFXPasswordField;
@@ -18,6 +19,12 @@ public class UserLoginFormController {
 
     //Dependency injection - property injection
     UserLoginBO userLoginBO = (UserLoginBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.USER_CREDENTIALS);
+
+    public void showPassword(MouseEvent keyEvent) {
+        String pwd = pwdPassword.getText();
+        pwdPassword.setVisible(true);
+        System.out.println(true);
+    }
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
          String un = String.valueOf(txtUsername.getText());

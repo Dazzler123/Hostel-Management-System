@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="292.0" prefWidth="417.0" style="-fx-background-color: #5f9ea0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hms.controller.UserLoginFormController">
    <children>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="173.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
@@ -26,5 +25,10 @@
       </Label>
       <JFXButton buttonType="RAISED" layoutX="317.0" layoutY="247.0" onAction="#btnLoginOnAction" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #7fff00;" text="Login" />
       <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="247.0" onAction="#btnExit" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #7fff00;" text="Cancel" />
+      <ImageView fitHeight="54.0" fitWidth="94.0" layoutX="307.0" layoutY="24.0" onMouseClicked="#showPassword" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/777494-200-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
