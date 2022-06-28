@@ -29,7 +29,8 @@ public class UserControlsFormController {
         UINavigation.setUI("HaveNotPaidForm","Student Details");
     }
 
-    public void btnStudentDetails(ActionEvent actionEvent) {
+    public void btnStudentDetails(ActionEvent actionEvent) throws IOException {
+        UINavigation.setUI("StudentOfRoomForm","Details of Student");
     }
 
     public void btnExit(ActionEvent actionEvent) {
