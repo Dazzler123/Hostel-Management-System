@@ -3,13 +3,14 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="292.0" prefWidth="417.0" style="-fx-background-color: #5f9ea0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hms.controller.UserLoginFormController">
+<AnchorPane prefHeight="335.0" prefWidth="417.0" style="-fx-background-color: #5f9ea0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hms.controller.UserLoginFormController">
    <children>
       <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="173.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -23,12 +24,9 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="317.0" layoutY="247.0" onAction="#btnLoginOnAction" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #7fff00;" text="Login" />
-      <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="247.0" onAction="#btnExit" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #7fff00;" text="Cancel" />
-      <ImageView fitHeight="54.0" fitWidth="94.0" layoutX="307.0" layoutY="24.0" onMouseClicked="#showPassword" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@assets/777494-200-removebg-preview.png" />
-         </image>
-      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="317.0" layoutY="289.0" onAction="#btnLoginOnAction" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #7fff00;" text="Login" />
+      <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="289.0" onAction="#btnExit" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #7fff00;" text="Cancel" />
+      <CheckBox fx:id="chkBxShowPassword" layoutX="55.0" layoutY="224.0" mnemonicParsing="false" onAction="#chkBxShowPassword" prefHeight="21.0" prefWidth="180.0" text="Show Password" />
+      <Label fx:id="lblPw" layoutX="55.0" layoutY="257.0" prefHeight="21.0" prefWidth="305.0" textFill="#3f2b97" />
    </children>
 </AnchorPane>

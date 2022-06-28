@@ -1,6 +1,7 @@
 package lk.ijse.hms.controller;
 
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import lk.ijse.hms.bo.BOFactory;
 import lk.ijse.hms.bo.custom.UserLoginBO;
 import com.jfoenix.controls.JFXPasswordField;
@@ -16,14 +17,27 @@ import java.io.IOException;
 public class UserLoginFormController {
     public JFXTextField txtUsername;
     public JFXPasswordField pwdPassword;
+    public Label lblPw;
+    public CheckBox chkBxShowPassword;
 
     //Dependency injection - property injection
     UserLoginBO userLoginBO = (UserLoginBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.USER_CREDENTIALS);
 
-    public void showPassword(MouseEvent keyEvent) {
-        String pwd = pwdPassword.getText();
-        pwdPassword.setVisible(true);
-        System.out.println(true);
+    public void initialize(){
+        //show password
+        chkBxShowPassword.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            //show password in the label
+            if(!chkBxShowPassword.isSelected()){
+                lblPw.setText(null);
+            }else {
+                String pw = pwdPassword.getText();
+                lblPw.setText(pw);
+            }
+        });
+
+    }
+
+    public void chkBxShowPassword(ActionEvent actionEvent) {
     }
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
@@ -47,4 +61,5 @@ public class UserLoginFormController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }
+
 }
