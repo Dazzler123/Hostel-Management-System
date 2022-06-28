@@ -13,7 +13,17 @@ import java.util.List;
 public class ReserveDAOImpl implements ReserveDAO {
     @Override
     public List<Reserve> getAll() {
-       return null;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("FROM Reserve WHERE status = : sts");
+        query.setParameter("sts","Not Paid");
+        List<Reserve> list = query.list();
+
+        transaction.commit();
+        session.close();
+
+        return list;
     }
 
     @Override
