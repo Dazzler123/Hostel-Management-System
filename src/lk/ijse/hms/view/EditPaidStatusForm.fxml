@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="281.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hms.controller.EditPaidStatusFormController">
+   <children>
+      <TableView fx:id="tblReserve" layoutX="14.0" layoutY="14.0" prefHeight="125.0" prefWidth="671.0">
+        <columns>
+          <TableColumn fx:id="colResID" prefWidth="121.0" text="RES ID" />
+          <TableColumn fx:id="colDate" prefWidth="139.0" text="Date" />
+            <TableColumn fx:id="colStudentID" prefWidth="135.0" text="Student ID" />
+            <TableColumn fx:id="colRoomID" prefWidth="148.0" text="Room ID" />
+            <TableColumn fx:id="colStatus" prefWidth="127.0" text="Status" />
+        </columns>
+      </TableView>
+      <HBox layoutX="376.0" layoutY="224.0" prefHeight="46.0" prefWidth="301.0" spacing="20.0">
+         <children>
+            <JFXButton buttonType="RAISED" onAction="#btnExit" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: orange;" text="Cancel">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" onAction="#btnSave" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: orange;" text="Update">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <JFXButton buttonType="RAISED" layoutX="516.0" layoutY="154.0" onAction="#btnUpdatePaidStatus" prefHeight="31.0" prefWidth="169.0" style="-fx-background-color: yellow;" text="Pay Now">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

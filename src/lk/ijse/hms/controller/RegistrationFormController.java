@@ -111,4 +111,7 @@ public class RegistrationFormController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }
+
+    public void btnUpdatePaidStatus(ActionEvent actionEvent) {
+    }
 }
