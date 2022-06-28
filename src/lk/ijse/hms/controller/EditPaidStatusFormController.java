@@ -67,6 +67,10 @@ public class EditPaidStatusFormController {
         if(reservationBO.updatePaidStatus(selectedItem.getStudentID(),selectedItem.getResID(),status)){
             //confirmation alert
             new Alert(Alert.AlertType.CONFIRMATION,"Paid status updated.").show();
+
+            //refresh status column
+            selectedItem.setStatus(status);
+            tblReserve.refresh();
         }else{
             new Alert(Alert.AlertType.ERROR,"Something went wrong!").show();
         }

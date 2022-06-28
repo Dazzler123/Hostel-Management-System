@@ -117,7 +117,7 @@ public class RegistrationFormController {
     }
 
     public void btnUpdatePaidStatus(ActionEvent actionEvent) throws IOException {
-        UINavigation.setUI("EditPaidStatusForm","Edit Paid Status");
+        UINavigation.setUI("EditPaidStatusForm","Non-paid Reservations");
     }
 
     public void btnExit(ActionEvent actionEvent) {
