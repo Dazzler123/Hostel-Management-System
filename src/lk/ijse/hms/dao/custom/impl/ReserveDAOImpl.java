@@ -2,6 +2,7 @@ package lk.ijse.hms.dao.custom.impl;
 
 import lk.ijse.hms.dao.custom.ReserveDAO;
 import lk.ijse.hms.entity.Reserve;
+import lk.ijse.hms.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -16,12 +17,12 @@ public class ReserveDAOImpl implements ReserveDAO {
     }
 
     @Override
-    public Reserve get(String s) {
+    public Reserve get(Student student) {
         return null;
     }
 
     @Override
-    public List<Reserve> search(String s) {
+    public List<Reserve> search(Student s) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -55,7 +56,7 @@ public class ReserveDAOImpl implements ReserveDAO {
     }
 
     @Override
-    public boolean delete(String s) {
+    public boolean delete(Student student) {
         return false;
     }
 

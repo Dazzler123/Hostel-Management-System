@@ -32,6 +32,9 @@ public class RegistrationFormController {
     public JFXRadioButton rdBtnPayLater;
     public Label lblName;
 
+    //get student's id
+    static String s_id;
+
     //Dependency injection - property injection
     ReservationBO reservationBO = (ReservationBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.RESERVE);
 
@@ -66,9 +69,15 @@ public class RegistrationFormController {
 
             //disable id textfield for no later changes
             txtStudentID.setDisable(true);
+
+            s_id = txtStudentID.getText();
         } else {
             new Alert(Alert.AlertType.ERROR, "No related Student ID found!\nPlease add a new Student").show();
         }
+    }
+
+    public static String getStudentID(){
+        return s_id;
     }
 
     public void btnAddNewStudent(ActionEvent actionEvent) throws IOException {
@@ -109,8 +118,6 @@ public class RegistrationFormController {
 
     public void btnUpdatePaidStatus(ActionEvent actionEvent) throws IOException {
         UINavigation.setUI("EditPaidStatusForm","Edit Paid Status");
-        //send student id
-        EditPaidStatusFormController.setStudentID(txtStudentID.getText());
     }
 
     public void btnExit(ActionEvent actionEvent) {

@@ -13,6 +13,6 @@ public interface ReservationBO extends SuperBO {
 //    public ArrayList<String> getStudentName(String id);
     public boolean saveReservation(ReserveDTO reserveDTO);
     public boolean updateRoomQty(String id, String qty);
-    public void getReservations();
+    public ArrayList<ReserveDTO> getReservations(String id);
     public void updatePaidStatus();
 }

@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lk.ijse.hms.bo.BOFactory;
 import lk.ijse.hms.bo.custom.ReservationBO;
@@ -20,25 +21,34 @@ public class EditPaidStatusFormController {
     public TableColumn colRoomID;
     public TableColumn colStatus;
 
-    //student's id from search student id option in Registration UI
-    static String s_id = null;
+    //set status
     static String status = null;
 
     //Dependency injection - property injection
     private final ReservationBO reservationBO = (ReservationBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.RESERVE);
 
     public void initialize(){
+        colResID.setCellValueFactory(new PropertyValueFactory<>("resID"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colStudentID.setCellValueFactory(new PropertyValueFactory<>("studentID"));
+        colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomTypeID"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        //get student's id
+        setStudentID();
+
         //load all non-paid reservations related to the student
-        loadAllReservations();
+        loadAllReservations(setStudentID());
     }
 
-    private void loadAllReservations() {
-        ObservableList<ReserveDTO> reservationList = FXCollections.observableArrayList(reservationBO.getReservations());
+    private String setStudentID() {
+        String id = RegistrationFormController.getStudentID();
+        return id;
+    }
+
+    private void loadAllReservations(String id) {
+        ObservableList<ReserveDTO> reservationList = FXCollections.observableArrayList(reservationBO.getReservations(id));
         tblReserve.setItems(reservationList);
-    }
-
-    public static void setStudentID(String id) {
-        s_id = id;
     }
 
     public void btnUpdatePaidStatus(ActionEvent actionEvent) {

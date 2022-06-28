@@ -67,5 +67,10 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
+      <JFXButton buttonType="RAISED" layoutX="757.0" layoutY="338.0" onAction="#btnUpdatePaidStatus" prefHeight="31.0" prefWidth="169.0" style="-fx-background-color: orange;" text="Update Paid Status">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

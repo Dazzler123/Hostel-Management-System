@@ -70,8 +70,15 @@ public class ReservationBOImpl implements ReservationBO {
         return roomDAO.updateQty(id, QTY);
     }
 
-    @Override
-    public void getReservations() {
+    public ArrayList<ReserveDTO> getReservations(String id) {
+        ArrayList<ReserveDTO> resList = new ArrayList<>();
+        //get student as an object
+        Student student = studentDAO.get(id);
+        for(Reserve r : reserveDAO.search(student)){
+            resList.add(new ReserveDTO(r.getRes_id(),r.getDate(), r.getStudent_id().getStudent_id(),
+                    r.getRoom_id().getRoom_id(),r.getStatus()));
+        }
+        return resList;
     }
 
     @Override
