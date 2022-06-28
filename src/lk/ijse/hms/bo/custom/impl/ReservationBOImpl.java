@@ -72,7 +72,6 @@ public class ReservationBOImpl implements ReservationBO {
 
     @Override
     public void getReservations() {
-
     }
 
     @Override

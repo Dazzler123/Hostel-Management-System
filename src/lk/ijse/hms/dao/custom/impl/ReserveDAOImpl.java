@@ -12,7 +12,7 @@ import java.util.List;
 public class ReserveDAOImpl implements ReserveDAO {
     @Override
     public List<Reserve> getAll() {
-        return null;
+       return null;
     }
 
     @Override
@@ -22,7 +22,18 @@ public class ReserveDAOImpl implements ReserveDAO {
 
     @Override
     public List<Reserve> search(String s) {
-        return null;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("FROM Reserve where student_id = : id AND status = : st");
+        query.setParameter("id",s);
+        query.setParameter("st","Not Paid");
+        List<Reserve> list = query.list();
+
+        transaction.commit();
+        session.close();
+
+        return list;
     }
 
     @Override
