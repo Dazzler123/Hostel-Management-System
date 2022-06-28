@@ -2,6 +2,7 @@ package lk.ijse.hms.dao.custom.impl;
 
 import lk.ijse.hms.dao.custom.ReserveDAO;
 import lk.ijse.hms.entity.Reserve;
+import lk.ijse.hms.entity.Room;
 import lk.ijse.hms.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -110,5 +111,20 @@ public class ReserveDAOImpl implements ReserveDAO {
         }else{
             return false;
         }
+    }
+
+    @Override
+    public List<Room> getRooms(Room room) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("FROM Reserve WHERE room_id = : rId");
+        query.setParameter("rId",room);
+        List<Room> list = query.list();
+
+        transaction.commit();
+        session.close();
+
+        return list;
     }
 }
