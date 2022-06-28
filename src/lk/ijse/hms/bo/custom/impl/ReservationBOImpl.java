@@ -70,4 +70,14 @@ public class ReservationBOImpl implements ReservationBO {
         return roomDAO.updateQty(id, QTY);
     }
 
+    @Override
+    public void getReservations() {
+
+    }
+
+    @Override
+    public void updatePaidStatus() {
+
+    }
+
 }
