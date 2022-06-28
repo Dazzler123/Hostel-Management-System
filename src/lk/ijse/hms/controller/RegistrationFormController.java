@@ -107,11 +107,16 @@ public class RegistrationFormController {
 
     }
 
+    public void btnUpdatePaidStatus(ActionEvent actionEvent) throws IOException {
+        UINavigation.setUI("EditPaidStatusForm","Edit Paid Status");
+        //send student id
+        EditPaidStatusFormController.setStudentID(txtStudentID.getText());
+    }
+
     public void btnExit(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }
 
-    public void btnUpdatePaidStatus(ActionEvent actionEvent) {
-    }
+
 }
