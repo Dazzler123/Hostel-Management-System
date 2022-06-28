@@ -28,6 +28,9 @@ public class HaveNotPaidFormController {
     public void initialize(){
         //set today's date
         lblDate.setText(String.valueOf(LocalDate.now()));
+
+        //load all student details
+        reportsBO.getStudents();
     }
 
     public void btnExit(ActionEvent actionEvent) {
