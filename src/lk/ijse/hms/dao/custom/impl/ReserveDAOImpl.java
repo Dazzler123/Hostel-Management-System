@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ReserveDAOImpl implements ReserveDAO {
     @Override
-    public List<Reserve> getAll() {
+    public List<Reserve> getAll() { //get all where status = "Not Paid"
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
