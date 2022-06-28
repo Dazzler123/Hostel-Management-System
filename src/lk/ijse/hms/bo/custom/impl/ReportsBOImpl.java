@@ -40,7 +40,10 @@ public class ReportsBOImpl implements ReportsBO {
 
     @Override
     public void getRooms(String id) {
+        //get room as an object
         Room room = roomDAO.get(id);
-        reserveDAO.getRooms(room);
+        for(Reserve r : reserveDAO.getReservations(room)){
+
+        }
     }
 }

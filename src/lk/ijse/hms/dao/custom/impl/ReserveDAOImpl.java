@@ -114,13 +114,13 @@ public class ReserveDAOImpl implements ReserveDAO {
     }
 
     @Override
-    public List<Room> getRooms(Room room) {
+    public List<Reserve> getReservations(Room room) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
         Query query = session.createQuery("FROM Reserve WHERE room_id = : rId");
         query.setParameter("rId",room);
-        List<Room> list = query.list();
+        List<Reserve> list = query.list();
 
         transaction.commit();
         session.close();

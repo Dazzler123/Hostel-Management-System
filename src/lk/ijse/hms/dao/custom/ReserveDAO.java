@@ -11,5 +11,5 @@ public interface ReserveDAO extends CrudDAO<Reserve, Student> {
     public boolean save(Reserve reserve);
     public String generateID();
     public boolean updateStatus(String resID, Student student, String status);
-    public List<Room> getRooms(Room room);
+    public List<Reserve> getReservations(Room room);
 }
