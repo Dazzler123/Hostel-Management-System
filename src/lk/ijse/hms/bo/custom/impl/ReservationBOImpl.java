@@ -82,8 +82,9 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
     @Override
-    public void updatePaidStatus() {
-
+    public boolean updatePaidStatus(String sID, String resID, String status) {
+        Student student = studentDAO.get(sID);
+        return reserveDAO.updateStatus(resID,student,status);
     }
 
 }

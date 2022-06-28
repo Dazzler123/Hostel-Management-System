@@ -1,5 +1,6 @@
 package lk.ijse.hms.controller;
 
+import com.jfoenix.controls.JFXRadioButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +21,8 @@ public class EditPaidStatusFormController {
     public TableColumn colStudentID;
     public TableColumn colRoomID;
     public TableColumn colStatus;
+    public JFXRadioButton rdBtnPayNow;
+    public JFXRadioButton rdBtnPayLater;
 
     //set status
     static String status = null;
@@ -42,8 +45,7 @@ public class EditPaidStatusFormController {
     }
 
     private String setStudentID() {
-        String id = RegistrationFormController.getStudentID();
-        return id;
+        return RegistrationFormController.getStudentID();
     }
 
     private void loadAllReservations(String id) {
@@ -51,17 +53,23 @@ public class EditPaidStatusFormController {
         tblReserve.setItems(reservationList);
     }
 
-    public void btnUpdatePaidStatus(ActionEvent actionEvent) {
-        status = "Paid";
-
-        //set status as paid
-        if (!(status == null)){
-            //confirmation alert
-            new Alert(Alert.AlertType.CONFIRMATION,"Status is set to Paid").show();
-        }
-    }
-
     public void btnSave(ActionEvent actionEvent) {
+        ReserveDTO selectedItem = tblReserve.getSelectionModel().getSelectedItem();
+
+        //get selection from pay now/pay later
+        if(rdBtnPayNow.isSelected()){
+            status = "Paid";
+        } else if (rdBtnPayLater.isSelected()) {
+            status = "Not Paid";
+        }
+
+        //update reservation
+        if(reservationBO.updatePaidStatus(selectedItem.getStudentID(),selectedItem.getResID(),status)){
+            //confirmation alert
+            new Alert(Alert.AlertType.CONFIRMATION,"Paid status updated.").show();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Something went wrong!").show();
+        }
     }
 
     public void btnExit(ActionEvent actionEvent) {

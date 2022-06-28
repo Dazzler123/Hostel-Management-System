@@ -7,4 +7,5 @@ import lk.ijse.hms.entity.Student;
 public interface ReserveDAO extends CrudDAO<Reserve, Student> {
     public boolean save(Reserve reserve);
     public String generateID();
+    public boolean updateStatus(String resID, Student student, String status);
 }

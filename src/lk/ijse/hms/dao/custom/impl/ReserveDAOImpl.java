@@ -52,7 +52,7 @@ public class ReserveDAOImpl implements ReserveDAO {
 
     @Override
     public boolean update(Reserve entity) {
-        return false;
+       return false;
     }
 
     @Override
@@ -78,6 +78,27 @@ public class ReserveDAOImpl implements ReserveDAO {
             Long resID = Long.parseLong(id.substring(4, id.length()));
             resID++;
             return "RES-" + String.format("%04d", resID);
+        }
+    }
+
+    @Override
+    public boolean updateStatus(String resID, Student student, String status) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("UPDATE Reserve SET status = : sts WHERE student_id = : sId AND res_id = : resId");
+        query.setParameter("sts",status);
+        query.setParameter("sId",student);
+        query.setParameter("resId",resID);
+        int isUpdated = query.executeUpdate();
+
+        transaction.commit();
+        session.close();
+
+        if(isUpdated > 0){
+            return true;
+        }else{
+            return false;
         }
     }
 }
